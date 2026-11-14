@@ -1,0 +1,19 @@
+[
+  {"query_id":"dev-01","answer_grade":2,"citation_support":[true,true,true,true],"review_note":"Lý thuyết tập mờ được nêu rõ ở tóm tắt và chương 3; các trang trích dẫn hỗ trợ các chi tiết thêm."},
+  {"query_id":"dev-02","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-03","answer_grade":2,"citation_support":[true,true]},
+  {"query_id":"dev-04","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-05","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-06","answer_grade":2,"citation_support":[true,true]},
+  {"query_id":"dev-07","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-08","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-09","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-10","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-11","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-12","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-13","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-14","answer_grade":2,"citation_support":[true],"review_note":"Trang 31 mô tả hàm thuộc của quan hệ mờ ánh xạ vào [0,1], hỗ trợ miền giá trị; trang 28 là evidence gold trực tiếp hơn."},
+  {"query_id":"dev-15","answer_grade":2,"citation_support":[true]},
+  {"query_id":"dev-16","abstention_correct":true,"citation_support":[]},
+  {"query_id":"dev-17","abstention_correct":true,"citation_support":[],"review_note":"Raw model answer nêu rõ không đủ bằng chứng; finalizer chuẩn hóa thành abstain và bỏ citation không cần thiết."}
+]

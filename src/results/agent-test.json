@@ -1,0 +1,2157 @@
+{
+  "summary": {
+    "split": "test",
+    "cases": 7,
+    "answerable": 5,
+    "unanswerable": 2,
+    "errors": 0,
+    "answered": 4,
+    "abstained": 3,
+    "answerable_answered": {
+      "n": 4,
+      "N": 5
+    },
+    "answerable_abstained": {
+      "n": 1,
+      "N": 5
+    },
+    "unanswerable_abstained": {
+      "n": 2,
+      "N": 2
+    },
+    "tool_use": {
+      "n": 7,
+      "N": 7
+    },
+    "mean_searches": 2.5714285714285716,
+    "median_elapsed_ms": 19656.8,
+    "model": "qwen/qwen3.8-flash",
+    "retrieval_method_default": "hybrid",
+    "top_k": 5,
+    "max_searches": 3,
+    "context_budget_chars": 6000,
+    "grading_note": "Status metrics only; manually grade answer grounding and citation support before reporting quality."
+  },
+  "traces": [
+    {
+      "query_id": "test-01",
+      "question": "Trong biểu diễn đề xuất ở chương 3, các thành phần của vector văn bản là gì?",
+      "status": "answered",
+      "answer": "Các đoạn truy xuất không cung cấp đủ bằng chứng để xác định cụ thể các thành phần của vector văn bản trong biểu diễn đề xuất ở Chương 3. Tài liệu chỉ cho biết Chương 3 đề cập một cách biểu diễn văn bản mới dựa trên các khái niệm mờ [6f27529d88ed:p6:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 6) và trình bày phương pháp biểu diễn văn bản sử dụng các khái niệm mờ [6f27529d88ed:p33:c2] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 33).",
+      "model_answer": "Các đoạn truy xuất không cung cấp đủ bằng chứng để xác định cụ thể các thành phần của vector văn bản trong biểu diễn đề xuất ở Chương 3. Tài liệu chỉ cho biết Chương 3 đề cập một cách biểu diễn văn bản mới dựa trên các khái niệm mờ [6f27529d88ed:p6:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 6) và trình bày phương pháp biểu diễn văn bản sử dụng các khái niệm mờ [6f27529d88ed:p33:c2] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 33).",
+      "citation_validation_error": null,
+      "citations": [
+        "6f27529d88ed:p6:c1",
+        "6f27529d88ed:p33:c2"
+      ],
+      "model": "qwen/qwen3.8-flash",
+      "search_count": 3,
+      "context_ids": [
+        "6f27529d88ed:p2:c1",
+        "6f27529d88ed:p20:c1",
+        "6f27529d88ed:p6:c1",
+        "6f27529d88ed:p33:c2",
+        "6f27529d88ed:p13:c1",
+        "6f27529d88ed:p57:c1"
+      ],
+      "context": [
+        {
+          "id": "6f27529d88ed:p2:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 2,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTÓM TẮT\nBiểu diễn văn bản là một trong những công đoạn quan trọng nhất và được quan\ntâm đầu tiên trong các vấn đề xử lý văn bản. Nó có ảnh hưởng rất lớn đến các bài toán tìm\nkiếm văn bản, phân lớp, phân cụm hay tóm tắt văn bản… Khóa luận này trình bày và\nnghiên cứu một phương pháp biểu diễn văn bản mới dựa trên cơ sở lý thuyết tập mờ và áp\ndụng vào bài toán phân lớp văn bản. Nội dung của khóa luận tập trung vào các vấn đề\nsau:\n1. Trình bày một số phương pháp biểu diễn văn bản thông thường, trong đó, khóa\nluận đi sâu vào cách biểu diễn theo mô hình vector, tức mỗi văn bản sẽ được biểu diễn\nnhư một vector có các thành phần là các từ khóa có mặt hoặc không có mặt trong văn bản.\nSau đó, khóa luận tìm hiểu phương pháp biểu diễn văn bản trong máy tìm kiếm.\n2. Trình bày về lý thuyết tập mờ, và đề cập một cách biểu diễn văn bản mới dựa\ntrên các khái niệm mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản."
+        },
+        {
+          "id": "6f27529d88ed:p20:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 20,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nHình 3: Biểu diễn các vector văn bản trong không gian 2 chiều\nGiả sử ta có một văn bản và nó được biểu diễn bởi vector V(v1,v2, …, vn). Trong\nđó, vi là số lần xuất hiện của từ khóa thứ i trong văn bản. Ta xét 2 văn bản sau:\nVB1: Life is not only life\nVB2: To life is to fight\nSau khi qua bước tiền xử lý văn bản, ta biểu diễn chúng như sau:\nTrong các cơ sở dữ liệu văn bản, mô hình vector là mô hình biểu diễn văn bản\nđược sử dụng phổ biến nhất hiện nay. Mối quan hệ giữa các trang văn bản được thực hiện\nthông qua việc tính toán trên các vector biểu diễn vì vậy được thi hành khá hiệu quả. Đặc\nbiệt, nhiều công trình nghiên cứu về mối quan hệ \"tương tự nhau\" giữa các trang web\n(một trong những quan hệ điển hình nhất giữa các trang web) dựa trên mô hình biểu diễn\nvector .\n16"
+        },
+        {
+          "id": "6f27529d88ed:p6:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 6,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 1, giới thiệu tổng quan về khai phá dữ liệu văn bản, một số định nghĩa và\nmột số bài toán điển hình.\nChương 2, trình bày một số phương pháp biểu diễn văn bản truyền thống: mô\nhình tần suất, mô hình phân tích cú pháp, mô hình không gian vector... Đồng thời nêu ra\ncách biểu diễn văn bản thường dùng trong máy tìm kiếm.\nChương 3, giới thiệu tổng quan về lý thuyết tập mờ [9][14] và một số phép toán\ntrên tập mờ. Nội dung chính của chương là đề cập một cách biểu diễn văn bản mới dựa\ntrên các khái niệm mờ.\nChương 4, trình bày bài toán phân lớp văn bản và một số thuật toán phân lớp tiêu\nbiểu.\nChương 5, chỉ ra các kết quả thực nghiệm có được khi áp dụng mô hình biểu diễn\nmới trong bài toán phân lớp văn bản. Đánh giá và so sánh với mô hình biểu diễn thông\nthường.\n2"
+        },
+        {
+          "id": "6f27529d88ed:p33:c2",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 33,
+          "text": "bản được biểu diễn bằng một vector và mỗi thành phần của vector là một từ\nkhóa. Ở chương II, khóa luận đã nêu ra một số nhược điểm của phương pháp này: gây tốn\nkém, phức tạp trong việc lưu trữ, chiều của mỗi vector là rất lớn khi văn bản có nhiều từ\nkhóa … Trong phần này, chúng tôi xin trình bày một phương pháp biểu diễn văn bản mà\nphần nào khắc phục được nhược điểm nêu trên, đó là phương pháp biểu diễn văn bản sử\ndụng các khái niệm mờ.\n29"
+        },
+        {
+          "id": "6f27529d88ed:p13:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 13,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Phân cụm văn bản: Đưa các văn bản có nội dung giống nhau vào thành từng\nnhóm\n Tóm tắt văn bản: Tóm tắt nội dung một văn bản cho trước\n Dẫn đường văn bản: Đưa một văn bản cho trước vào một chủ đề hoặc một\nnơi lưu trữ nhất định theo yêu cầu người dùng\nTrong các bài toán nêu trên, văn bản thường được biểu diễn thành một tập các\nthuộc tính đặc trưng cho văn bản đó. Các quá trình xử lý và làm việc tiếp theo đều thực\nhiện trên các thuộc tính này. Có nhiều tiêu chuẩn chọn lựa các thuộc tính để biểu diễn, tuy\nnhiên đều dựa trên việc xử lý từ khóa một cách tự động.\nTrong chương tiếp theo, khóa luận trình bày một số phương pháp biểu diễn văn\nbản truyền thống.\n9"
+        },
+        {
+          "id": "6f27529d88ed:p57:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 57,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nKẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN\n Kết quả đạt được\nDựa vào các nghiên cứu gần đây trong bài toán xử lý văn bản, khóa luận đã\nnghiên cứu, chọn lọc cũng như phát triển một số vấn đề và đạt được những kết quả ban\nđầu như sau:\n Tìm hiểu và trình bày được một số phương pháp biểu diễn văn bản.\n Nghiên cứu về lý thuyết tập mờ và các phép toán liên quan. Qua đó giới thiệu\nđược một phương pháp biểu diễn văn bản dựa trên các khái niệm mờ.\n Nghiên cứu và tìm hiểu về bài toán phân lớp, trình bày một số thuật toán\nphân lớp tiêu biểu.\n Có được những kết quả thử nghiệm, những so ban đầu khi áp dụng cách biểu\ndiễn văn bản mới với cách biểu diễn thông thường. Qua đó thấy được một số\nưu điểm:\n9 Giảm bớt được số chiều của vector văn bản khi biểu diễn. Giảm bớt\nsự phức tạp khi tính toán.\n9 Cho kết quả tốt hơn khi áp dụng vào bài toán phân lớp với thuật\ntoán kNN\n Hướng phát triển\n Chúng tôi xin đề xuất một phương pháp tìm ra các từ khóa có liên quan trong\nvăn bản: Có một tập các từ khóa trong tập văn bản đã qua bước tiền xử lý."
+        }
+      ],
+      "events": [
+        {
+          "event": "search",
+          "query": "chương 3 biểu diễn đề xuất vector văn bản các thành phần",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTÓM TẮT\nBiểu diễn văn bản là một trong những công đoạn quan trọng nhất và được quan\ntâm đầu tiên trong các vấn đề xử lý văn bản. Nó có ảnh hưởng rất lớn đến các bài toán tìm\nkiếm văn bản, phân lớp, phân cụm hay tóm tắt văn bản… Khóa luận này trình bày và\nnghiên cứu một phương pháp biểu diễn văn bản mới dựa trên cơ sở lý thuyết tập mờ và áp\ndụng vào bài toán phân lớp văn bản. Nội dung của khóa luận tập trung vào các vấn đề\nsau:\n1. Trình bày một số phương pháp biểu diễn văn bản thông thường, trong đó, khóa\nluận đi sâu vào cách biểu diễn theo mô hình vector, tức mỗi văn bản sẽ được biểu diễn\nnhư một vector có các thành phần là các từ khóa có mặt hoặc không có mặt trong văn bản.\nSau đó, khóa luận tìm hiểu phương pháp biểu diễn văn bản trong máy tìm kiếm.\n2. Trình bày về lý thuyết tập mờ, và đề cập một cách biểu diễn văn bản mới dựa\ntrên các khái niệm mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "metadata": {
+                "chunk_index": 1,
+                "page_chunk": 1
+              },
+              "score": 0.03252247488101534,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03252247488101534
+            },
+            {
+              "id": "6f27529d88ed:p20:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nHình 3: Biểu diễn các vector văn bản trong không gian 2 chiều\nGiả sử ta có một văn bản và nó được biểu diễn bởi vector V(v1,v2, …, vn). Trong\nđó, vi là số lần xuất hiện của từ khóa thứ i trong văn bản. Ta xét 2 văn bản sau:\nVB1: Life is not only life\nVB2: To life is to fight\nSau khi qua bước tiền xử lý văn bản, ta biểu diễn chúng như sau:\nTrong các cơ sở dữ liệu văn bản, mô hình vector là mô hình biểu diễn văn bản\nđược sử dụng phổ biến nhất hiện nay. Mối quan hệ giữa các trang văn bản được thực hiện\nthông qua việc tính toán trên các vector biểu diễn vì vậy được thi hành khá hiệu quả. Đặc\nbiệt, nhiều công trình nghiên cứu về mối quan hệ \"tương tự nhau\" giữa các trang web\n(một trong những quan hệ điển hình nhất giữa các trang web) dựa trên mô hình biểu diễn\nvector .\n16",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 20,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 43
+              },
+              "score": 0.031544957774465976,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031544957774465976
+            },
+            {
+              "id": "6f27529d88ed:p6:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 1, giới thiệu tổng quan về khai phá dữ liệu văn bản, một số định nghĩa và\nmột số bài toán điển hình.\nChương 2, trình bày một số phương pháp biểu diễn văn bản truyền thống: mô\nhình tần suất, mô hình phân tích cú pháp, mô hình không gian vector... Đồng thời nêu ra\ncách biểu diễn văn bản thường dùng trong máy tìm kiếm.\nChương 3, giới thiệu tổng quan về lý thuyết tập mờ [9][14] và một số phép toán\ntrên tập mờ. Nội dung chính của chương là đề cập một cách biểu diễn văn bản mới dựa\ntrên các khái niệm mờ.\nChương 4, trình bày bài toán phân lớp văn bản và một số thuật toán phân lớp tiêu\nbiểu.\nChương 5, chỉ ra các kết quả thực nghiệm có được khi áp dụng mô hình biểu diễn\nmới trong bài toán phân lớp văn bản. Đánh giá và so sánh với mô hình biểu diễn thông\nthường.\n2",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 6,
+              "metadata": {
+                "chunk_index": 12,
+                "page_chunk": 1
+              },
+              "score": 0.03149801587301587,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03149801587301587
+            },
+            {
+              "id": "6f27529d88ed:p33:c2",
+              "text": "bản được biểu diễn bằng một vector và mỗi thành phần của vector là một từ\nkhóa. Ở chương II, khóa luận đã nêu ra một số nhược điểm của phương pháp này: gây tốn\nkém, phức tạp trong việc lưu trữ, chiều của mỗi vector là rất lớn khi văn bản có nhiều từ\nkhóa … Trong phần này, chúng tôi xin trình bày một phương pháp biểu diễn văn bản mà\nphần nào khắc phục được nhược điểm nêu trên, đó là phương pháp biểu diễn văn bản sử\ndụng các khái niệm mờ.\n29",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 33,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 69
+              },
+              "score": 0.03128054740957967,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03128054740957967
+            },
+            {
+              "id": "6f27529d88ed:p13:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Phân cụm văn bản: Đưa các văn bản có nội dung giống nhau vào thành từng\nnhóm\n Tóm tắt văn bản: Tóm tắt nội dung một văn bản cho trước\n Dẫn đường văn bản: Đưa một văn bản cho trước vào một chủ đề hoặc một\nnơi lưu trữ nhất định theo yêu cầu người dùng\nTrong các bài toán nêu trên, văn bản thường được biểu diễn thành một tập các\nthuộc tính đặc trưng cho văn bản đó. Các quá trình xử lý và làm việc tiếp theo đều thực\nhiện trên các thuộc tính này. Có nhiều tiêu chuẩn chọn lựa các thuộc tính để biểu diễn, tuy\nnhiên đều dựa trên việc xử lý từ khóa một cách tự động.\nTrong chương tiếp theo, khóa luận trình bày một số phương pháp biểu diễn văn\nbản truyền thống.\n9",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 13,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 30
+              },
+              "score": 0.029877369007803793,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.029877369007803793
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p2:c1",
+            "6f27529d88ed:p20:c1",
+            "6f27529d88ed:p6:c1",
+            "6f27529d88ed:p33:c2",
+            "6f27529d88ed:p13:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p2:c1",
+            "6f27529d88ed:p20:c1",
+            "6f27529d88ed:p6:c1",
+            "6f27529d88ed:p33:c2",
+            "6f27529d88ed:p13:c1"
+          ],
+          "context_chars": 4241
+        },
+        {
+          "event": "search",
+          "query": "vector văn bản thành phần biểu diễn văn bản đề xuất",
+          "method": "dense",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p20:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nHình 3: Biểu diễn các vector văn bản trong không gian 2 chiều\nGiả sử ta có một văn bản và nó được biểu diễn bởi vector V(v1,v2, …, vn). Trong\nđó, vi là số lần xuất hiện của từ khóa thứ i trong văn bản. Ta xét 2 văn bản sau:\nVB1: Life is not only life\nVB2: To life is to fight\nSau khi qua bước tiền xử lý văn bản, ta biểu diễn chúng như sau:\nTrong các cơ sở dữ liệu văn bản, mô hình vector là mô hình biểu diễn văn bản\nđược sử dụng phổ biến nhất hiện nay. Mối quan hệ giữa các trang văn bản được thực hiện\nthông qua việc tính toán trên các vector biểu diễn vì vậy được thi hành khá hiệu quả. Đặc\nbiệt, nhiều công trình nghiên cứu về mối quan hệ \"tương tự nhau\" giữa các trang web\n(một trong những quan hệ điển hình nhất giữa các trang web) dựa trên mô hình biểu diễn\nvector .\n16",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 20,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 43
+              },
+              "score": 0.6998910903930664,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p13:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Phân cụm văn bản: Đưa các văn bản có nội dung giống nhau vào thành từng\nnhóm\n Tóm tắt văn bản: Tóm tắt nội dung một văn bản cho trước\n Dẫn đường văn bản: Đưa một văn bản cho trước vào một chủ đề hoặc một\nnơi lưu trữ nhất định theo yêu cầu người dùng\nTrong các bài toán nêu trên, văn bản thường được biểu diễn thành một tập các\nthuộc tính đặc trưng cho văn bản đó. Các quá trình xử lý và làm việc tiếp theo đều thực\nhiện trên các thuộc tính này. Có nhiều tiêu chuẩn chọn lựa các thuộc tính để biểu diễn, tuy\nnhiên đều dựa trên việc xử lý từ khóa một cách tự động.\nTrong chương tiếp theo, khóa luận trình bày một số phương pháp biểu diễn văn\nbản truyền thống.\n9",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 13,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 30
+              },
+              "score": 0.6682826280593872,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nKẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN\n Kết quả đạt được\nDựa vào các nghiên cứu gần đây trong bài toán xử lý văn bản, khóa luận đã\nnghiên cứu, chọn lọc cũng như phát triển một số vấn đề và đạt được những kết quả ban\nđầu như sau:\n Tìm hiểu và trình bày được một số phương pháp biểu diễn văn bản.\n Nghiên cứu về lý thuyết tập mờ và các phép toán liên quan. Qua đó giới thiệu\nđược một phương pháp biểu diễn văn bản dựa trên các khái niệm mờ.\n Nghiên cứu và tìm hiểu về bài toán phân lớp, trình bày một số thuật toán\nphân lớp tiêu biểu.\n Có được những kết quả thử nghiệm, những so ban đầu khi áp dụng cách biểu\ndiễn văn bản mới với cách biểu diễn thông thường. Qua đó thấy được một số\nưu điểm:\n9 Giảm bớt được số chiều của vector văn bản khi biểu diễn. Giảm bớt\nsự phức tạp khi tính toán.\n9 Cho kết quả tốt hơn khi áp dụng vào bài toán phân lớp với thuật\ntoán kNN\n Hướng phát triển\n Chúng tôi xin đề xuất một phương pháp tìm ra các từ khóa có liên quan trong\nvăn bản: Có một tập các từ khóa trong tập văn bản đã qua bước tiền xử lý.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 107
+              },
+              "score": 0.6646949648857117,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTÓM TẮT\nBiểu diễn văn bản là một trong những công đoạn quan trọng nhất và được quan\ntâm đầu tiên trong các vấn đề xử lý văn bản. Nó có ảnh hưởng rất lớn đến các bài toán tìm\nkiếm văn bản, phân lớp, phân cụm hay tóm tắt văn bản… Khóa luận này trình bày và\nnghiên cứu một phương pháp biểu diễn văn bản mới dựa trên cơ sở lý thuyết tập mờ và áp\ndụng vào bài toán phân lớp văn bản. Nội dung của khóa luận tập trung vào các vấn đề\nsau:\n1. Trình bày một số phương pháp biểu diễn văn bản thông thường, trong đó, khóa\nluận đi sâu vào cách biểu diễn theo mô hình vector, tức mỗi văn bản sẽ được biểu diễn\nnhư một vector có các thành phần là các từ khóa có mặt hoặc không có mặt trong văn bản.\nSau đó, khóa luận tìm hiểu phương pháp biểu diễn văn bản trong máy tìm kiếm.\n2. Trình bày về lý thuyết tập mờ, và đề cập một cách biểu diễn văn bản mới dựa\ntrên các khái niệm mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "metadata": {
+                "chunk_index": 1,
+                "page_chunk": 1
+              },
+              "score": 0.6555532813072205,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p10:c2",
+              "text": "sách các văn bản theo\nđộ liên quan của văn bản với câu hỏi người dùng\n Quá trình tìm kiếm\nQuá trình tìm kiếm được chia thành bốn quá trình thành phần chính :\nĐánh chỉ số (indexing): Các văn bản ở dạng thô cần được chuyển sang một dạng\nbiểu diễn nào đó để xử lý. Quá trình này còn được gọi là quá trình biểu diễn văn bản,\ndạng biểu diễn phải có cấu trúc và dễ dàng khi xử lý. Một nội dung quan trọng của khóa\nluận này là nghiên cứu cách thức biểu diễn văn bản sử dụng lý thuyết tập mờ nhằm có\nđược biểu diễn văn bản mang nhiều ngữ nghĩa hơn.\nĐịnh dạng câu hỏi: Người dùng phải mô tả những yêu cầu về lấy thông tin cần\nthiết dưới dạng câu hỏi. Các câu hỏi này phải được biểu diễn dưới dạng phổ biến cho các\nhệ tìm kiếm như nhập vào các từ khóa cần tìm. Ngoài ra còn có các phương pháp định\ndạng câu hỏi dưới dạng ngôn ngữ tự nhiên hoặc dưới dạng các ví dụ, đối với các dạng này\nthì cần có các kỹ thuật xử lý phức tạp hơn. Đại đa số hệ tìm kiếm hiện nay dùng câu hỏi\ndưới dạng các từ khóa.\nSo sánh: Hệ thống phải thực hiện việc so sánh tường minh và toàn vẹn câu hỏi",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 10,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 22
+              },
+              "score": 0.6518756747245789,
+              "method": "dense"
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p2:c1",
+            "6f27529d88ed:p20:c1",
+            "6f27529d88ed:p6:c1",
+            "6f27529d88ed:p33:c2",
+            "6f27529d88ed:p13:c1",
+            "6f27529d88ed:p57:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p57:c1"
+          ],
+          "context_chars": 5388
+        },
+        {
+          "event": "search",
+          "query": "biểu diễn văn bản sử dụng các khái niệm mờ vector thành phần là khái niệm mờ",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p36:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.2. Biểu diễn văn bản\nVới cách định nghĩa khái niệm mờ như trên, ta có thể biểu diễn văn bản bằng\ncách xem nó như một vector có các thành phần là các khái niệm mờ thay vì một vector\nvới các thành phần là các từ khóa.\nKhi đó, một văn bản d sẽ được biểu diễn dưới dạng sau:\nd = µ(c1*)/ c1* + µ(c2*)/c2* + … + µ(cn*)/(cn*)\nTrong đó µ(ci*) là là mức độ quan trọng của khái niệm mờ c*i của văn bản. µ(ci*)\nđược xác định bằng hàm tích hợp mờ của tập các từ khóa liên quan đến khái niệm ci* .\nChú ý rằng trong phương pháp biểu diễn này, một từ khóa cũng có thể coi như là\nmột khái niệm mờ khi đồng nhất từ khóa với khái niệm mờ.\nNếu trong các khái niệm, khái niệm nào có các từ khóa liên quan đến văn bản lớn\nhơn thì trọng số của nó sẽ lớn hơn, và như vậy ngữ nghĩa của nó cũng sẽ rõ ràng hơn.\nMột vấn đề đặt ra là tìm tập các từ khóa biểu diễn cho một khái niệm mờ, các từ\nkhóa này phải liên quan đến nhau và có nghĩa tương tự nhau. Việc phát triển một thuật\ntoán như vậy hiện nay còn là một vấn đề. Thông thường có hai cách chính như sau:\n1.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 36,
+              "metadata": {
+                "chunk_index": 74,
+                "page_chunk": 1
+              },
+              "score": 0.03278688524590164,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "6f27529d88ed:p33:c2",
+              "text": "bản được biểu diễn bằng một vector và mỗi thành phần của vector là một từ\nkhóa. Ở chương II, khóa luận đã nêu ra một số nhược điểm của phương pháp này: gây tốn\nkém, phức tạp trong việc lưu trữ, chiều của mỗi vector là rất lớn khi văn bản có nhiều từ\nkhóa … Trong phần này, chúng tôi xin trình bày một phương pháp biểu diễn văn bản mà\nphần nào khắc phục được nhược điểm nêu trên, đó là phương pháp biểu diễn văn bản sử\ndụng các khái niệm mờ.\n29",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 33,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 69
+              },
+              "score": 0.031754032258064516,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031754032258064516
+            },
+            {
+              "id": "6f27529d88ed:p5:c2",
+              "text": "i phá dữ liệu văn bản thường gặp phải một số khó khăn như tính nhiều chiều\ncủa văn bản, tính nhập nhằng của ngôn ngữ… Trong khóa luận này, chúng tôi xin đề cập\nđến một cách biểu diễn văn bản mới: biểu diễn dựa trên các khái niệm mờ. Trong đó, mỗi\nkhái niệm sẽ được xác định bởi một tập các từ khóa liên quan. Và mức độ liên quan của\nkhái niệm đến văn bản sẽ được xác định bằng hàm tích hợp mờ các từ khóa đó. Sau khi đã\ncó một tập các khái niệm liên quan đến một hay nhiều chủ đề cần phần lớp, mỗi văn bản\nsẽ được xem như là một vector có các thành phần là các khái niệm mờ đó.\nVới lượng thông tin dạng văn bản đồ sộ của Internet, một yêu cầu lớn đặt ra đối\nvới chúng ta là làm sao tổ chức và tìm kiếm thông tin có hiệu quả nhất. Phân lớp (phân\nloại) thông tin là một trong những giải pháp hợp lý cho yêu cầu trên. Khóa luận sẽ trình\nbày một số thuật toán phân lớp tiêu biểu và đưa ra hướng thực nghiệm cho phương pháp\nbiểu diễn văn bản dựa trên các khái niêm mờ.\nChúng tôi áp dụng thuật toán KNN (k – người láng giềng gần nhất) và phần mềm\nWEKA (K-người láng giếng gần nhất) để tiến hành phân lớp.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 5,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 10
+              },
+              "score": 0.031754032258064516,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031754032258064516
+            },
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTÓM TẮT\nBiểu diễn văn bản là một trong những công đoạn quan trọng nhất và được quan\ntâm đầu tiên trong các vấn đề xử lý văn bản. Nó có ảnh hưởng rất lớn đến các bài toán tìm\nkiếm văn bản, phân lớp, phân cụm hay tóm tắt văn bản… Khóa luận này trình bày và\nnghiên cứu một phương pháp biểu diễn văn bản mới dựa trên cơ sở lý thuyết tập mờ và áp\ndụng vào bài toán phân lớp văn bản. Nội dung của khóa luận tập trung vào các vấn đề\nsau:\n1. Trình bày một số phương pháp biểu diễn văn bản thông thường, trong đó, khóa\nluận đi sâu vào cách biểu diễn theo mô hình vector, tức mỗi văn bản sẽ được biểu diễn\nnhư một vector có các thành phần là các từ khóa có mặt hoặc không có mặt trong văn bản.\nSau đó, khóa luận tìm hiểu phương pháp biểu diễn văn bản trong máy tìm kiếm.\n2. Trình bày về lý thuyết tập mờ, và đề cập một cách biểu diễn văn bản mới dựa\ntrên các khái niệm mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 1
+              },
+              "score": 0.03057889822595705,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03057889822595705
+            },
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.1. Khái niệm mờ\nCó một tập gồm m văn bản: D=(d1, d2, …dm).\nKhí đó xác định được một tập p từ khóa: K = (k1, k2, … kp)\nMột khái niệm có thể là một từ khóa theo nghĩa thông thường, trong đó gồm các từ có liên\nquan đến từ khóa đó. Ví dụ với khái niệm là “bệnh viện”, nó có thể bao gồm 1 số từ khóa:\n“bác sĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”\nGọi C là tập gồm có n khái niệm liên quan đến văn bản, C được kí hiệu như sau:\nC = {c1, c2, …cn}\nTrong đó: ci là khái niệm do người dùng xác định. Giả sử một khái niệm ci sẽ bao\ngồm các từ khóa có liên quan, ci = {k1, k2, …kp}, trong đó ki là các từ khóa trong tập từ\nđiển và có liên quan đến khái niệm ci. Trong ví dụ trên chúng ta có “bệnh viện” = {“bác\nsĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”}.\nĐịnh nghĩa 3.3: Khái niệm mờ\nMột tập mờ tương ứng với khái niệm trong đó hàm thuộc của nó được xác định\nbằng độ quan trọng của các từ khóa có liên quan tới khái niệm đó được gọi là một khái\nniệm mờ, kí hiệu c* . Ta có thể biểu diễn khái niệm mờ qua tập từ khóa như sau:",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "metadata": {
+                "chunk_index": 70,
+                "page_chunk": 1
+              },
+              "score": 0.02976190476190476,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.02976190476190476
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p2:c1",
+            "6f27529d88ed:p20:c1",
+            "6f27529d88ed:p6:c1",
+            "6f27529d88ed:p33:c2",
+            "6f27529d88ed:p13:c1",
+            "6f27529d88ed:p57:c1"
+          ],
+          "added_context_ids": [],
+          "context_chars": 5388
+        },
+        {
+          "event": "search_limit",
+          "tool_call_id": "call_595e9ab4482448d7a9442b82"
+        },
+        {
+          "event": "answer",
+          "citation_ids": [
+            "6f27529d88ed:p6:c1",
+            "6f27529d88ed:p33:c2"
+          ],
+          "citation_ids_in_context": true,
+          "validation_error": null,
+          "invalid_citation_ids": []
+        }
+      ],
+      "elapsed_ms": 32500.4,
+      "split": "test",
+      "answerable": true
+    },
+    {
+      "query_id": "test-02",
+      "question": "Từ điển nào được dùng để hỗ trợ tìm từ đồng nghĩa?",
+      "status": "answered",
+      "answer": "Tài liệu cho biết từ điển được dùng để hỗ trợ tìm từ đồng nghĩa là **Wordnet**, một từ điển ngôn ngữ học cho tiếng Anh [6f27529d88ed:p37:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 37).",
+      "model_answer": "Tài liệu cho biết từ điển được dùng để hỗ trợ tìm từ đồng nghĩa là **Wordnet**, một từ điển ngôn ngữ học cho tiếng Anh [6f27529d88ed:p37:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 37).",
+      "citation_validation_error": null,
+      "citations": [
+        "6f27529d88ed:p37:c1"
+      ],
+      "model": "qwen/qwen3.8-flash",
+      "search_count": 3,
+      "context_ids": [
+        "6f27529d88ed:p37:c2",
+        "6f27529d88ed:p37:c1",
+        "6f27529d88ed:p18:c1",
+        "6f27529d88ed:p2:c2",
+        "6f27529d88ed:p17:c1",
+        "6f27529d88ed:p14:c3",
+        "6f27529d88ed:p38:c1"
+      ],
+      "context": [
+        {
+          "id": "6f27529d88ed:p37:c2",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 37,
+          "text": "điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.\nsyn: data processor, electronic computer, information processing system.\nTừ một từ khóa trong tập các từ khóa, kết hợp với từ điển wordnet, ta tìm ra\nnhững từ đồng nghĩa với từ khóa đó. Tìm giao của 2 tập: Tập từ khóa và tập từ đồng\nnghĩa, chúng ta sẽ tìm ra được một nhóm các từ đồng nghĩa trong tập từ khóa đã có.\nXử lý từ đồng nghĩa:\nVới tập từ đồng nghĩa xuất hiện trong văn bản mà ta vừa tìm được, bằng cách sử\n33"
+        },
+        {
+          "id": "6f27529d88ed:p37:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 37,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.3. Đề xuất giải pháp cho vấn đề đồng nghĩa\nTrong văn bản, thường xuất hiện một số từ đồng nghĩa (hoặc có nghĩa gần nhau).\nSự xuất hiện này sẽ làm cho việc biểu diễn văn bản khó khăn hơn vì không giảm được số\nchiều của vector biểu diễn.\nKhóa luận này xin đề xuất một phương pháp tìm ra và xử lý các từ đồng nghĩa\ntrong văn bản như sau:\nTìm ra từ đồng nghĩa\nChúng tôi sử dụng sự hỗ trợ của từ điển Wordnet. Wordnet là Từ điển ngôn ngữ\nhọc cho tiếng Anh, được giới thiệu vào năm 1985 tại phòng thí nghiệm khoa học của\ntrường đại học Princeton.\nWordnet sẽ cung cấp:\n Nhóm các từ tiếng Anh thành một tập những từ đồng nghĩa gọi là synsets\n Cung cấp những định nghĩa ngắn, tổng quát và ghi lại nhiều quan hệ ngữ\nnghĩa học giữa những tập từ đồng nghĩa này.\n Phân biệt động từ, danh từ, tính từ bởi chúng đi theo những quy tắc văn phạm\nkhác nhau.\nMục đích: Tạo ra sự kết hợp giữa từ điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically."
+        },
+        {
+          "id": "6f27529d88ed:p18:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 18,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ncái. Phép tìm kiếm trên có độ phức tạp cấp θ(nlog2n), với n là số từ trong bảng Index.\nTương ứng với chỉ số index trên sẽ cho ta biết các tài liệu chứa từ khóa tìm kiếm. Như\nvậy việc tìm kiếm liên quan đến k từ thì các phép toán cần thực hiện là k*n*log2n (n là số\ntừ trong bảng Index)\nCâu hỏi tìm kiếm linh hoạt\nNgười dùng có thể sử dụng các kí tự đặc biệt trong câu hỏi tìm kiếm mà không\nlàm ảnh hưởng đến độ phức tạp của phép tìm kiếm. Ví dụ muốn tìm từ “ta” thì kết quả sẽ\ntrả lại các văn bản có chứa các từ “ta”, “tao”, “tay”,…là các từ bắt đầu bằng từ “ta”\nKí tự % được gọi là kí tự đại diện (wildcard character).\nNgoài ra, bằng các phép toán Logic các từ cần tìm có thể tổ chức thành các câu\nhỏi một cách linh hoạt. Ví dụ: Cần tìm từ [tôi, ta, tao], dấu “[]” sẽ thay cho nghĩa của từ\n“hoặc” - thể hiện việc tìm kiếm trên một trong số nhiều từ trong nhóm. Đây thực ra là một\ncách thể hiện linh hoạt phép toán OR trong đại số Logic thay vì phải viết là: Tìm các tài\nliệu có chứa từ “tôi” hoặc từ “ta” hoặc “tao”.\nNhược điểm"
+        },
+        {
+          "id": "6f27529d88ed:p2:c2",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 2,
+          "text": "mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản.\nChỉ ra một số kết quả phân lớp và so sánh với phương pháp biểu diễn theo mô hình vector\nthông thường. Từ đó rút ra một số kết luận và hướng phát triển tiếp theo.\nii"
+        },
+        {
+          "id": "6f27529d88ed:p17:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 17,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTiến hành Index các văn bản đưa vào theo danh sách các từ khoá nói trên. Với\nmỗi từ khóa người ta sẽ đánh số thứ tự vị trí xuất hiện của nó và lưu lại chỉ số đó cùng với\nmã văn bản chứa nó. Cách biểu diễn này cũng được các máy tìm kiếm ưa dùng.\nVí dụ, có hai văn bản với mã tương ứng là VB1,VB2.\n“Cộng hòa xã hội chủ nghĩa Việt Nam” (VB1)\n“ Việt Nam dân chủ cộng hòa” (VB2)\nKhi đó ta có cách biểu diễn như sau:\nKhi biểu diễn văn bản theo phương pháp này người ta đưa ra cách tìm kiếm như sau:\nCâu hỏi tìm kiếm được đưa ra dưới dạng Logic, tức là gồm một tập hợp các phép\ntoán (AND, OR,…) được thực hiện trên các từ hoặc cụm từ. Việc tìm kiếm sẽ dựa vào\nbảng Index đã tạo ra và kết quả trả lại là các văn bản thoả mãn toàn bộ các điều kiện trên\n Một số ưu điểm, nhược điểm:\nƯu điểm\nViệc tìm kiếm trở nên nhanh và đơn giản.\nThực vậy, giả sử cần tìm kiếm từ “computer”. Hệ thống sẽ duyệt trên bảng Index\nđể trỏ đến chỉ số Index tương ứng nếu từ “computer” tồn tại trong hệ thống. Việc tìm"
+        },
+        {
+          "id": "6f27529d88ed:p14:c3",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 14,
+          "text": "t cũng được xem là những từ dừng (stop-words).\nVì đặc điểm của từ dừng nên chúng được loại bỏ mà không ảnh hưởng đến các\ncông việc biểu diễn văn bản tiếp theo.\nBảng danh sách một số từ dừng trong tiếng Anh:\n10"
+        },
+        {
+          "id": "6f27529d88ed:p38:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 38,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ndụng hàm tích hợp mờ, ta tích hợp chúng lại trong một khái niệm chung. Việc xử lý văn\nbản thay vì việc tính toán trên các từ khóa, sẽ tính toán trên một khái niệm này. Làm như\nvậy, ta sẽ giảm bớt được số chiều của vector biểu diễn, giảm sự phức tạp trong tính toán\nvà tránh gây nên sự khó hiểu cho người sử dụng khi bắt gặp các từ đồng nghĩa trong văn\nbản.\n34"
+        }
+      ],
+      "events": [
+        {
+          "event": "search",
+          "query": "từ điển hỗ trợ tìm từ đồng nghĩa",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p37:c2",
+              "text": "điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.\nsyn: data processor, electronic computer, information processing system.\nTừ một từ khóa trong tập các từ khóa, kết hợp với từ điển wordnet, ta tìm ra\nnhững từ đồng nghĩa với từ khóa đó. Tìm giao của 2 tập: Tập từ khóa và tập từ đồng\nnghĩa, chúng ta sẽ tìm ra được một nhóm các từ đồng nghĩa trong tập từ khóa đã có.\nXử lý từ đồng nghĩa:\nVới tập từ đồng nghĩa xuất hiện trong văn bản mà ta vừa tìm được, bằng cách sử\n33",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 77
+              },
+              "score": 0.03278688524590164,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "6f27529d88ed:p37:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.3. Đề xuất giải pháp cho vấn đề đồng nghĩa\nTrong văn bản, thường xuất hiện một số từ đồng nghĩa (hoặc có nghĩa gần nhau).\nSự xuất hiện này sẽ làm cho việc biểu diễn văn bản khó khăn hơn vì không giảm được số\nchiều của vector biểu diễn.\nKhóa luận này xin đề xuất một phương pháp tìm ra và xử lý các từ đồng nghĩa\ntrong văn bản như sau:\nTìm ra từ đồng nghĩa\nChúng tôi sử dụng sự hỗ trợ của từ điển Wordnet. Wordnet là Từ điển ngôn ngữ\nhọc cho tiếng Anh, được giới thiệu vào năm 1985 tại phòng thí nghiệm khoa học của\ntrường đại học Princeton.\nWordnet sẽ cung cấp:\n Nhóm các từ tiếng Anh thành một tập những từ đồng nghĩa gọi là synsets\n Cung cấp những định nghĩa ngắn, tổng quát và ghi lại nhiều quan hệ ngữ\nnghĩa học giữa những tập từ đồng nghĩa này.\n Phân biệt động từ, danh từ, tính từ bởi chúng đi theo những quy tắc văn phạm\nkhác nhau.\nMục đích: Tạo ra sự kết hợp giữa từ điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "metadata": {
+                "chunk_index": 76,
+                "page_chunk": 1
+              },
+              "score": 0.03225806451612903,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03225806451612903
+            },
+            {
+              "id": "6f27529d88ed:p18:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ncái. Phép tìm kiếm trên có độ phức tạp cấp θ(nlog2n), với n là số từ trong bảng Index.\nTương ứng với chỉ số index trên sẽ cho ta biết các tài liệu chứa từ khóa tìm kiếm. Như\nvậy việc tìm kiếm liên quan đến k từ thì các phép toán cần thực hiện là k*n*log2n (n là số\ntừ trong bảng Index)\nCâu hỏi tìm kiếm linh hoạt\nNgười dùng có thể sử dụng các kí tự đặc biệt trong câu hỏi tìm kiếm mà không\nlàm ảnh hưởng đến độ phức tạp của phép tìm kiếm. Ví dụ muốn tìm từ “ta” thì kết quả sẽ\ntrả lại các văn bản có chứa các từ “ta”, “tao”, “tay”,…là các từ bắt đầu bằng từ “ta”\nKí tự % được gọi là kí tự đại diện (wildcard character).\nNgoài ra, bằng các phép toán Logic các từ cần tìm có thể tổ chức thành các câu\nhỏi một cách linh hoạt. Ví dụ: Cần tìm từ [tôi, ta, tao], dấu “[]” sẽ thay cho nghĩa của từ\n“hoặc” - thể hiện việc tìm kiếm trên một trong số nhiều từ trong nhóm. Đây thực ra là một\ncách thể hiện linh hoạt phép toán OR trong đại số Logic thay vì phải viết là: Tìm các tài\nliệu có chứa từ “tôi” hoặc từ “ta” hoặc “tao”.\nNhược điểm",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 18,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 39
+              },
+              "score": 0.031746031746031744,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031746031746031744
+            },
+            {
+              "id": "6f27529d88ed:p2:c2",
+              "text": "mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản.\nChỉ ra một số kết quả phân lớp và so sánh với phương pháp biểu diễn theo mô hình vector\nthông thường. Từ đó rút ra một số kết luận và hướng phát triển tiếp theo.\nii",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 2
+              },
+              "score": 0.03055037313432836,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03055037313432836
+            },
+            {
+              "id": "6f27529d88ed:p17:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTiến hành Index các văn bản đưa vào theo danh sách các từ khoá nói trên. Với\nmỗi từ khóa người ta sẽ đánh số thứ tự vị trí xuất hiện của nó và lưu lại chỉ số đó cùng với\nmã văn bản chứa nó. Cách biểu diễn này cũng được các máy tìm kiếm ưa dùng.\nVí dụ, có hai văn bản với mã tương ứng là VB1,VB2.\n“Cộng hòa xã hội chủ nghĩa Việt Nam” (VB1)\n“ Việt Nam dân chủ cộng hòa” (VB2)\nKhi đó ta có cách biểu diễn như sau:\nKhi biểu diễn văn bản theo phương pháp này người ta đưa ra cách tìm kiếm như sau:\nCâu hỏi tìm kiếm được đưa ra dưới dạng Logic, tức là gồm một tập hợp các phép\ntoán (AND, OR,…) được thực hiện trên các từ hoặc cụm từ. Việc tìm kiếm sẽ dựa vào\nbảng Index đã tạo ra và kết quả trả lại là các văn bản thoả mãn toàn bộ các điều kiện trên\n Một số ưu điểm, nhược điểm:\nƯu điểm\nViệc tìm kiếm trở nên nhanh và đơn giản.\nThực vậy, giả sử cần tìm kiếm từ “computer”. Hệ thống sẽ duyệt trên bảng Index\nđể trỏ đến chỉ số Index tương ứng nếu từ “computer” tồn tại trong hệ thống. Việc tìm",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 17,
+              "metadata": {
+                "chunk_index": 37,
+                "page_chunk": 1
+              },
+              "score": 0.029437229437229435,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.029437229437229435
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p37:c2",
+            "6f27529d88ed:p37:c1",
+            "6f27529d88ed:p18:c1",
+            "6f27529d88ed:p2:c2",
+            "6f27529d88ed:p17:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p37:c2",
+            "6f27529d88ed:p37:c1",
+            "6f27529d88ed:p18:c1",
+            "6f27529d88ed:p2:c2",
+            "6f27529d88ed:p17:c1"
+          ],
+          "context_chars": 4486
+        },
+        {
+          "event": "search",
+          "query": "từ điển đồng nghĩa tiếng Việt",
+          "method": "tfidf",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p37:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.3. Đề xuất giải pháp cho vấn đề đồng nghĩa\nTrong văn bản, thường xuất hiện một số từ đồng nghĩa (hoặc có nghĩa gần nhau).\nSự xuất hiện này sẽ làm cho việc biểu diễn văn bản khó khăn hơn vì không giảm được số\nchiều của vector biểu diễn.\nKhóa luận này xin đề xuất một phương pháp tìm ra và xử lý các từ đồng nghĩa\ntrong văn bản như sau:\nTìm ra từ đồng nghĩa\nChúng tôi sử dụng sự hỗ trợ của từ điển Wordnet. Wordnet là Từ điển ngôn ngữ\nhọc cho tiếng Anh, được giới thiệu vào năm 1985 tại phòng thí nghiệm khoa học của\ntrường đại học Princeton.\nWordnet sẽ cung cấp:\n Nhóm các từ tiếng Anh thành một tập những từ đồng nghĩa gọi là synsets\n Cung cấp những định nghĩa ngắn, tổng quát và ghi lại nhiều quan hệ ngữ\nnghĩa học giữa những tập từ đồng nghĩa này.\n Phân biệt động từ, danh từ, tính từ bởi chúng đi theo những quy tắc văn phạm\nkhác nhau.\nMục đích: Tạo ra sự kết hợp giữa từ điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "metadata": {
+                "chunk_index": 76,
+                "page_chunk": 1
+              },
+              "score": 0.51073667520886,
+              "method": "tfidf"
+            },
+            {
+              "id": "6f27529d88ed:p37:c2",
+              "text": "điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.\nsyn: data processor, electronic computer, information processing system.\nTừ một từ khóa trong tập các từ khóa, kết hợp với từ điển wordnet, ta tìm ra\nnhững từ đồng nghĩa với từ khóa đó. Tìm giao của 2 tập: Tập từ khóa và tập từ đồng\nnghĩa, chúng ta sẽ tìm ra được một nhóm các từ đồng nghĩa trong tập từ khóa đã có.\nXử lý từ đồng nghĩa:\nVới tập từ đồng nghĩa xuất hiện trong văn bản mà ta vừa tìm được, bằng cách sử\n33",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "metadata": {
+                "chunk_index": 77,
+                "page_chunk": 2
+              },
+              "score": 0.4884747393869656,
+              "method": "tfidf"
+            },
+            {
+              "id": "6f27529d88ed:p2:c2",
+              "text": "mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản.\nChỉ ra một số kết quả phân lớp và so sánh với phương pháp biểu diễn theo mô hình vector\nthông thường. Từ đó rút ra một số kết luận và hướng phát triển tiếp theo.\nii",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "metadata": {
+                "chunk_index": 2,
+                "page_chunk": 2
+              },
+              "score": 0.15193441004553532,
+              "method": "tfidf"
+            },
+            {
+              "id": "6f27529d88ed:p14:c3",
+              "text": "t cũng được xem là những từ dừng (stop-words).\nVì đặc điểm của từ dừng nên chúng được loại bỏ mà không ảnh hưởng đến các\ncông việc biểu diễn văn bản tiếp theo.\nBảng danh sách một số từ dừng trong tiếng Anh:\n10",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 14,
+              "metadata": {
+                "chunk_index": 33,
+                "page_chunk": 3
+              },
+              "score": 0.13475657380199027,
+              "method": "tfidf"
+            },
+            {
+              "id": "6f27529d88ed:p38:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ndụng hàm tích hợp mờ, ta tích hợp chúng lại trong một khái niệm chung. Việc xử lý văn\nbản thay vì việc tính toán trên các từ khóa, sẽ tính toán trên một khái niệm này. Làm như\nvậy, ta sẽ giảm bớt được số chiều của vector biểu diễn, giảm sự phức tạp trong tính toán\nvà tránh gây nên sự khó hiểu cho người sử dụng khi bắt gặp các từ đồng nghĩa trong văn\nbản.\n34",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 38,
+              "metadata": {
+                "chunk_index": 78,
+                "page_chunk": 1
+              },
+              "score": 0.12900218916530845,
+              "method": "tfidf"
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p37:c2",
+            "6f27529d88ed:p37:c1",
+            "6f27529d88ed:p18:c1",
+            "6f27529d88ed:p2:c2",
+            "6f27529d88ed:p17:c1",
+            "6f27529d88ed:p14:c3",
+            "6f27529d88ed:p38:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p14:c3",
+            "6f27529d88ed:p38:c1"
+          ],
+          "context_chars": 5259
+        },
+        {
+          "event": "search",
+          "query": "thesaurus synonym dictionary",
+          "method": "dense",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p37:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.3. Đề xuất giải pháp cho vấn đề đồng nghĩa\nTrong văn bản, thường xuất hiện một số từ đồng nghĩa (hoặc có nghĩa gần nhau).\nSự xuất hiện này sẽ làm cho việc biểu diễn văn bản khó khăn hơn vì không giảm được số\nchiều của vector biểu diễn.\nKhóa luận này xin đề xuất một phương pháp tìm ra và xử lý các từ đồng nghĩa\ntrong văn bản như sau:\nTìm ra từ đồng nghĩa\nChúng tôi sử dụng sự hỗ trợ của từ điển Wordnet. Wordnet là Từ điển ngôn ngữ\nhọc cho tiếng Anh, được giới thiệu vào năm 1985 tại phòng thí nghiệm khoa học của\ntrường đại học Princeton.\nWordnet sẽ cung cấp:\n Nhóm các từ tiếng Anh thành một tập những từ đồng nghĩa gọi là synsets\n Cung cấp những định nghĩa ngắn, tổng quát và ghi lại nhiều quan hệ ngữ\nnghĩa học giữa những tập từ đồng nghĩa này.\n Phân biệt động từ, danh từ, tính từ bởi chúng đi theo những quy tắc văn phạm\nkhác nhau.\nMục đích: Tạo ra sự kết hợp giữa từ điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 76
+              },
+              "score": 0.6168283224105835,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p37:c2",
+              "text": "điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.\nsyn: data processor, electronic computer, information processing system.\nTừ một từ khóa trong tập các từ khóa, kết hợp với từ điển wordnet, ta tìm ra\nnhững từ đồng nghĩa với từ khóa đó. Tìm giao của 2 tập: Tập từ khóa và tập từ đồng\nnghĩa, chúng ta sẽ tìm ra được một nhóm các từ đồng nghĩa trong tập từ khóa đã có.\nXử lý từ đồng nghĩa:\nVới tập từ đồng nghĩa xuất hiện trong văn bản mà ta vừa tìm được, bằng cách sử\n33",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 77
+              },
+              "score": 0.595504879951477,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.1. Khái niệm mờ\nCó một tập gồm m văn bản: D=(d1, d2, …dm).\nKhí đó xác định được một tập p từ khóa: K = (k1, k2, … kp)\nMột khái niệm có thể là một từ khóa theo nghĩa thông thường, trong đó gồm các từ có liên\nquan đến từ khóa đó. Ví dụ với khái niệm là “bệnh viện”, nó có thể bao gồm 1 số từ khóa:\n“bác sĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”\nGọi C là tập gồm có n khái niệm liên quan đến văn bản, C được kí hiệu như sau:\nC = {c1, c2, …cn}\nTrong đó: ci là khái niệm do người dùng xác định. Giả sử một khái niệm ci sẽ bao\ngồm các từ khóa có liên quan, ci = {k1, k2, …kp}, trong đó ki là các từ khóa trong tập từ\nđiển và có liên quan đến khái niệm ci. Trong ví dụ trên chúng ta có “bệnh viện” = {“bác\nsĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”}.\nĐịnh nghĩa 3.3: Khái niệm mờ\nMột tập mờ tương ứng với khái niệm trong đó hàm thuộc của nó được xác định\nbằng độ quan trọng của các từ khóa có liên quan tới khái niệm đó được gọi là một khái\nniệm mờ, kí hiệu c* . Ta có thể biểu diễn khái niệm mờ qua tập từ khóa như sau:",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 70
+              },
+              "score": 0.42684292793273926,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p18:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ncái. Phép tìm kiếm trên có độ phức tạp cấp θ(nlog2n), với n là số từ trong bảng Index.\nTương ứng với chỉ số index trên sẽ cho ta biết các tài liệu chứa từ khóa tìm kiếm. Như\nvậy việc tìm kiếm liên quan đến k từ thì các phép toán cần thực hiện là k*n*log2n (n là số\ntừ trong bảng Index)\nCâu hỏi tìm kiếm linh hoạt\nNgười dùng có thể sử dụng các kí tự đặc biệt trong câu hỏi tìm kiếm mà không\nlàm ảnh hưởng đến độ phức tạp của phép tìm kiếm. Ví dụ muốn tìm từ “ta” thì kết quả sẽ\ntrả lại các văn bản có chứa các từ “ta”, “tao”, “tay”,…là các từ bắt đầu bằng từ “ta”\nKí tự % được gọi là kí tự đại diện (wildcard character).\nNgoài ra, bằng các phép toán Logic các từ cần tìm có thể tổ chức thành các câu\nhỏi một cách linh hoạt. Ví dụ: Cần tìm từ [tôi, ta, tao], dấu “[]” sẽ thay cho nghĩa của từ\n“hoặc” - thể hiện việc tìm kiếm trên một trong số nhiều từ trong nhóm. Đây thực ra là một\ncách thể hiện linh hoạt phép toán OR trong đại số Logic thay vì phải viết là: Tìm các tài\nliệu có chứa từ “tôi” hoặc từ “ta” hoặc “tao”.\nNhược điểm",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 18,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 39
+              },
+              "score": 0.42357271909713745,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p15:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nDanh sách một số từ dừng trong tiếng Việt: và; hoặc; cũng; là; mỗi; bởi…\n Loại bỏ từ có tần số thấp\nKhi quan sát văn bản, người ta để ý thấy rằng: Có nhiều từ trong tập văn bản gốc\nxuất hiện rất ít lần và chúng sẽ có ảnh hưởng rất ít trong văn bản. Vì vậy vấn đề đặt ra là\ncần loại bỏ những từ có tần xuất nhỏ. Người ta áp dụng phương pháp được đưa ra bởi\nZipf năm 1949: quan sát tần xuất xuất hiện của các từ trong tập văn bản.\nGọi tần số xuất hiện của từ khóa t trong tập hợp X là ft. Xắp xếp tất cả các\ntừ khóa trong tập hợp theo chiều giảm dần của tần số f, và gọi thứ hạng của mỗi từ khóa t\nlà rt. Đinh luật Zipf được phát biểu dưới dạng công thức sau:\nft.rt ≈ K\nTrong đó: K là một hằng số. Nếu N là tổng số từ trong tập văn bản, thì người ta\nN\nthấy rằng K ≈ .\n10\nNhư vậy, tần số xuất hiện và thứ hạng của một từ khóa là hai đại lượng nghịch\nđảo của nhau. Để thấy rõ hơn điều này, người ta đã biểu diễn lại công thức định luật Zipf\ntheo công thức sau:\n11",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 15,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 34
+              },
+              "score": 0.4037325382232666,
+              "method": "dense"
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p37:c2",
+            "6f27529d88ed:p37:c1",
+            "6f27529d88ed:p18:c1",
+            "6f27529d88ed:p2:c2",
+            "6f27529d88ed:p17:c1",
+            "6f27529d88ed:p14:c3",
+            "6f27529d88ed:p38:c1"
+          ],
+          "added_context_ids": [],
+          "context_chars": 5259
+        },
+        {
+          "event": "answer",
+          "citation_ids": [
+            "6f27529d88ed:p37:c1"
+          ],
+          "citation_ids_in_context": true,
+          "validation_error": null,
+          "invalid_citation_ids": []
+        }
+      ],
+      "elapsed_ms": 8626.0,
+      "split": "test",
+      "answerable": true
+    },
+    {
+      "query_id": "test-03",
+      "question": "Việc gộp các từ đồng nghĩa thành khái niệm chung giúp giảm điều gì?",
+      "status": "answered",
+      "answer": "Việc gộp các từ đồng nghĩa thành một khái niệm chung giúp **giảm số chiều của vector biểu diễn**, **giảm sự phức tạp trong tính toán**, đồng thời **tránh gây khó hiểu cho người dùng khi gặp các từ đồng nghĩa trong văn bản** [6f27529d88ed:p38:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 38).",
+      "model_answer": "Việc gộp các từ đồng nghĩa thành một khái niệm chung giúp **giảm số chiều của vector biểu diễn**, **giảm sự phức tạp trong tính toán**, đồng thời **tránh gây khó hiểu cho người dùng khi gặp các từ đồng nghĩa trong văn bản** [6f27529d88ed:p38:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 38).",
+      "citation_validation_error": null,
+      "citations": [
+        "6f27529d88ed:p38:c1"
+      ],
+      "model": "qwen/qwen3.8-flash",
+      "search_count": 1,
+      "context_ids": [
+        "6f27529d88ed:p38:c1",
+        "6f27529d88ed:p37:c1",
+        "6f27529d88ed:p37:c2",
+        "6f27529d88ed:p34:c1",
+        "6f27529d88ed:p36:c1"
+      ],
+      "context": [
+        {
+          "id": "6f27529d88ed:p38:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 38,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ndụng hàm tích hợp mờ, ta tích hợp chúng lại trong một khái niệm chung. Việc xử lý văn\nbản thay vì việc tính toán trên các từ khóa, sẽ tính toán trên một khái niệm này. Làm như\nvậy, ta sẽ giảm bớt được số chiều của vector biểu diễn, giảm sự phức tạp trong tính toán\nvà tránh gây nên sự khó hiểu cho người sử dụng khi bắt gặp các từ đồng nghĩa trong văn\nbản.\n34"
+        },
+        {
+          "id": "6f27529d88ed:p37:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 37,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.3. Đề xuất giải pháp cho vấn đề đồng nghĩa\nTrong văn bản, thường xuất hiện một số từ đồng nghĩa (hoặc có nghĩa gần nhau).\nSự xuất hiện này sẽ làm cho việc biểu diễn văn bản khó khăn hơn vì không giảm được số\nchiều của vector biểu diễn.\nKhóa luận này xin đề xuất một phương pháp tìm ra và xử lý các từ đồng nghĩa\ntrong văn bản như sau:\nTìm ra từ đồng nghĩa\nChúng tôi sử dụng sự hỗ trợ của từ điển Wordnet. Wordnet là Từ điển ngôn ngữ\nhọc cho tiếng Anh, được giới thiệu vào năm 1985 tại phòng thí nghiệm khoa học của\ntrường đại học Princeton.\nWordnet sẽ cung cấp:\n Nhóm các từ tiếng Anh thành một tập những từ đồng nghĩa gọi là synsets\n Cung cấp những định nghĩa ngắn, tổng quát và ghi lại nhiều quan hệ ngữ\nnghĩa học giữa những tập từ đồng nghĩa này.\n Phân biệt động từ, danh từ, tính từ bởi chúng đi theo những quy tắc văn phạm\nkhác nhau.\nMục đích: Tạo ra sự kết hợp giữa từ điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically."
+        },
+        {
+          "id": "6f27529d88ed:p37:c2",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 37,
+          "text": "điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.\nsyn: data processor, electronic computer, information processing system.\nTừ một từ khóa trong tập các từ khóa, kết hợp với từ điển wordnet, ta tìm ra\nnhững từ đồng nghĩa với từ khóa đó. Tìm giao của 2 tập: Tập từ khóa và tập từ đồng\nnghĩa, chúng ta sẽ tìm ra được một nhóm các từ đồng nghĩa trong tập từ khóa đã có.\nXử lý từ đồng nghĩa:\nVới tập từ đồng nghĩa xuất hiện trong văn bản mà ta vừa tìm được, bằng cách sử\n33"
+        },
+        {
+          "id": "6f27529d88ed:p34:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 34,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.1. Khái niệm mờ\nCó một tập gồm m văn bản: D=(d1, d2, …dm).\nKhí đó xác định được một tập p từ khóa: K = (k1, k2, … kp)\nMột khái niệm có thể là một từ khóa theo nghĩa thông thường, trong đó gồm các từ có liên\nquan đến từ khóa đó. Ví dụ với khái niệm là “bệnh viện”, nó có thể bao gồm 1 số từ khóa:\n“bác sĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”\nGọi C là tập gồm có n khái niệm liên quan đến văn bản, C được kí hiệu như sau:\nC = {c1, c2, …cn}\nTrong đó: ci là khái niệm do người dùng xác định. Giả sử một khái niệm ci sẽ bao\ngồm các từ khóa có liên quan, ci = {k1, k2, …kp}, trong đó ki là các từ khóa trong tập từ\nđiển và có liên quan đến khái niệm ci. Trong ví dụ trên chúng ta có “bệnh viện” = {“bác\nsĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”}.\nĐịnh nghĩa 3.3: Khái niệm mờ\nMột tập mờ tương ứng với khái niệm trong đó hàm thuộc của nó được xác định\nbằng độ quan trọng của các từ khóa có liên quan tới khái niệm đó được gọi là một khái\nniệm mờ, kí hiệu c* . Ta có thể biểu diễn khái niệm mờ qua tập từ khóa như sau:"
+        },
+        {
+          "id": "6f27529d88ed:p36:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 36,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.2. Biểu diễn văn bản\nVới cách định nghĩa khái niệm mờ như trên, ta có thể biểu diễn văn bản bằng\ncách xem nó như một vector có các thành phần là các khái niệm mờ thay vì một vector\nvới các thành phần là các từ khóa.\nKhi đó, một văn bản d sẽ được biểu diễn dưới dạng sau:\nd = µ(c1*)/ c1* + µ(c2*)/c2* + … + µ(cn*)/(cn*)\nTrong đó µ(ci*) là là mức độ quan trọng của khái niệm mờ c*i của văn bản. µ(ci*)\nđược xác định bằng hàm tích hợp mờ của tập các từ khóa liên quan đến khái niệm ci* .\nChú ý rằng trong phương pháp biểu diễn này, một từ khóa cũng có thể coi như là\nmột khái niệm mờ khi đồng nhất từ khóa với khái niệm mờ.\nNếu trong các khái niệm, khái niệm nào có các từ khóa liên quan đến văn bản lớn\nhơn thì trọng số của nó sẽ lớn hơn, và như vậy ngữ nghĩa của nó cũng sẽ rõ ràng hơn.\nMột vấn đề đặt ra là tìm tập các từ khóa biểu diễn cho một khái niệm mờ, các từ\nkhóa này phải liên quan đến nhau và có nghĩa tương tự nhau. Việc phát triển một thuật\ntoán như vậy hiện nay còn là một vấn đề. Thông thường có hai cách chính như sau:\n1."
+        }
+      ],
+      "events": [
+        {
+          "event": "search",
+          "query": "gộp các từ đồng nghĩa thành khái niệm chung giúp giảm",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p38:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ndụng hàm tích hợp mờ, ta tích hợp chúng lại trong một khái niệm chung. Việc xử lý văn\nbản thay vì việc tính toán trên các từ khóa, sẽ tính toán trên một khái niệm này. Làm như\nvậy, ta sẽ giảm bớt được số chiều của vector biểu diễn, giảm sự phức tạp trong tính toán\nvà tránh gây nên sự khó hiểu cho người sử dụng khi bắt gặp các từ đồng nghĩa trong văn\nbản.\n34",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 38,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 78
+              },
+              "score": 0.03278688524590164,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "6f27529d88ed:p37:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.3. Đề xuất giải pháp cho vấn đề đồng nghĩa\nTrong văn bản, thường xuất hiện một số từ đồng nghĩa (hoặc có nghĩa gần nhau).\nSự xuất hiện này sẽ làm cho việc biểu diễn văn bản khó khăn hơn vì không giảm được số\nchiều của vector biểu diễn.\nKhóa luận này xin đề xuất một phương pháp tìm ra và xử lý các từ đồng nghĩa\ntrong văn bản như sau:\nTìm ra từ đồng nghĩa\nChúng tôi sử dụng sự hỗ trợ của từ điển Wordnet. Wordnet là Từ điển ngôn ngữ\nhọc cho tiếng Anh, được giới thiệu vào năm 1985 tại phòng thí nghiệm khoa học của\ntrường đại học Princeton.\nWordnet sẽ cung cấp:\n Nhóm các từ tiếng Anh thành một tập những từ đồng nghĩa gọi là synsets\n Cung cấp những định nghĩa ngắn, tổng quát và ghi lại nhiều quan hệ ngữ\nnghĩa học giữa những tập từ đồng nghĩa này.\n Phân biệt động từ, danh từ, tính từ bởi chúng đi theo những quy tắc văn phạm\nkhác nhau.\nMục đích: Tạo ra sự kết hợp giữa từ điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 76
+              },
+              "score": 0.03200204813108039,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03200204813108039
+            },
+            {
+              "id": "6f27529d88ed:p37:c2",
+              "text": "điển và danh sách các từ đồng nghĩa, hỗ trợ\nviệc phân tích văn bản và ứng dụng trong AI.\nVí dụ:\nComputer: a machine for performing calculations automatically.\nsyn: data processor, electronic computer, information processing system.\nTừ một từ khóa trong tập các từ khóa, kết hợp với từ điển wordnet, ta tìm ra\nnhững từ đồng nghĩa với từ khóa đó. Tìm giao của 2 tập: Tập từ khóa và tập từ đồng\nnghĩa, chúng ta sẽ tìm ra được một nhóm các từ đồng nghĩa trong tập từ khóa đã có.\nXử lý từ đồng nghĩa:\nVới tập từ đồng nghĩa xuất hiện trong văn bản mà ta vừa tìm được, bằng cách sử\n33",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 77
+              },
+              "score": 0.03200204813108039,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03200204813108039
+            },
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.1. Khái niệm mờ\nCó một tập gồm m văn bản: D=(d1, d2, …dm).\nKhí đó xác định được một tập p từ khóa: K = (k1, k2, … kp)\nMột khái niệm có thể là một từ khóa theo nghĩa thông thường, trong đó gồm các từ có liên\nquan đến từ khóa đó. Ví dụ với khái niệm là “bệnh viện”, nó có thể bao gồm 1 số từ khóa:\n“bác sĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”\nGọi C là tập gồm có n khái niệm liên quan đến văn bản, C được kí hiệu như sau:\nC = {c1, c2, …cn}\nTrong đó: ci là khái niệm do người dùng xác định. Giả sử một khái niệm ci sẽ bao\ngồm các từ khóa có liên quan, ci = {k1, k2, …kp}, trong đó ki là các từ khóa trong tập từ\nđiển và có liên quan đến khái niệm ci. Trong ví dụ trên chúng ta có “bệnh viện” = {“bác\nsĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”}.\nĐịnh nghĩa 3.3: Khái niệm mờ\nMột tập mờ tương ứng với khái niệm trong đó hàm thuộc của nó được xác định\nbằng độ quan trọng của các từ khóa có liên quan tới khái niệm đó được gọi là một khái\nniệm mờ, kí hiệu c* . Ta có thể biểu diễn khái niệm mờ qua tập từ khóa như sau:",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 70
+              },
+              "score": 0.031009615384615385,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031009615384615385
+            },
+            {
+              "id": "6f27529d88ed:p36:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.2. Biểu diễn văn bản\nVới cách định nghĩa khái niệm mờ như trên, ta có thể biểu diễn văn bản bằng\ncách xem nó như một vector có các thành phần là các khái niệm mờ thay vì một vector\nvới các thành phần là các từ khóa.\nKhi đó, một văn bản d sẽ được biểu diễn dưới dạng sau:\nd = µ(c1*)/ c1* + µ(c2*)/c2* + … + µ(cn*)/(cn*)\nTrong đó µ(ci*) là là mức độ quan trọng của khái niệm mờ c*i của văn bản. µ(ci*)\nđược xác định bằng hàm tích hợp mờ của tập các từ khóa liên quan đến khái niệm ci* .\nChú ý rằng trong phương pháp biểu diễn này, một từ khóa cũng có thể coi như là\nmột khái niệm mờ khi đồng nhất từ khóa với khái niệm mờ.\nNếu trong các khái niệm, khái niệm nào có các từ khóa liên quan đến văn bản lớn\nhơn thì trọng số của nó sẽ lớn hơn, và như vậy ngữ nghĩa của nó cũng sẽ rõ ràng hơn.\nMột vấn đề đặt ra là tìm tập các từ khóa biểu diễn cho một khái niệm mờ, các từ\nkhóa này phải liên quan đến nhau và có nghĩa tương tự nhau. Việc phát triển một thuật\ntoán như vậy hiện nay còn là một vấn đề. Thông thường có hai cách chính như sau:\n1.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 36,
+              "metadata": {
+                "chunk_index": 74,
+                "page_chunk": 1
+              },
+              "score": 0.030117753623188408,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030117753623188408
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p38:c1",
+            "6f27529d88ed:p37:c1",
+            "6f27529d88ed:p37:c2",
+            "6f27529d88ed:p34:c1",
+            "6f27529d88ed:p36:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p38:c1",
+            "6f27529d88ed:p37:c1",
+            "6f27529d88ed:p37:c2",
+            "6f27529d88ed:p34:c1",
+            "6f27529d88ed:p36:c1"
+          ],
+          "context_chars": 4610
+        },
+        {
+          "event": "answer",
+          "citation_ids": [
+            "6f27529d88ed:p38:c1"
+          ],
+          "citation_ids_in_context": true,
+          "validation_error": null,
+          "invalid_citation_ids": []
+        }
+      ],
+      "elapsed_ms": 7160.5,
+      "split": "test",
+      "answerable": true
+    },
+    {
+      "query_id": "test-04",
+      "question": "Bộ dữ liệu 20newsgroup được mô tả có bao nhiêu tài liệu?",
+      "status": "answered",
+      "answer": "Bộ dữ liệu 20newsgroup được mô tả có **19.997 tài liệu**, chia thành **20 lớp**, mỗi lớp khoảng **1.000 tài liệu** [6f27529d88ed:p47:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 47).",
+      "model_answer": "Bộ dữ liệu 20newsgroup được mô tả có **19.997 tài liệu**, chia thành **20 lớp**, mỗi lớp khoảng **1.000 tài liệu** [6f27529d88ed:p47:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 47).",
+      "citation_validation_error": null,
+      "citations": [
+        "6f27529d88ed:p47:c1"
+      ],
+      "model": "qwen/qwen3.8-flash",
+      "search_count": 2,
+      "context_ids": [
+        "6f27529d88ed:p47:c1",
+        "6f27529d88ed:p52:c1",
+        "6f27529d88ed:p5:c1",
+        "6f27529d88ed:p7:c1",
+        "6f27529d88ed:p41:c1",
+        "6f27529d88ed:p50:c1"
+      ],
+      "context": [
+        {
+          "id": "6f27529d88ed:p47:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 47,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số"
+        },
+        {
+          "id": "6f27529d88ed:p52:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 52,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 100 văn bản. Trong đó: Traning set: 64, Test set: 32.\nCũng giống như với bộ dữ liệu gồm 50 văn bản, chúng tôi nhận thấy rằng trong\nbộ dữ liệu này, k = 2 cho ta kết quả phân lớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả ra như sau:\nCorrectly Classified Instanse: 23 71.875%\nInCorrectly Classified Instances: 9 28.125%\n----------------------\nPrecision Recall F1 Class\n1 0.438 0.609 rec.autos_50\n0.64 1 0.780 rec.Sport_50\n----------------------\na b <---classified as\n7 9 | a = rec.autos_50\n0 16 | b = rec.sport_50\n48"
+        },
+        {
+          "id": "6f27529d88ed:p5:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 5,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nMỞ ĐẦU\nNgày nay, sự phát triển mạnh mẽ của Internet đã dẫn đến sự bùng nổ thông tin về\nnhiều mặt kể cả về nội dung lẫn số lượng. Chỉ bằng một thao tác tìm kiếm đơn giản, ta có\nthể nhận về một khối lượng khổng lồ các trang web có chứa thông tin liên quan tới nội\ndung ta tìm kiếm. Tuy nhiên, chính sự dễ dàng này cũng mang đến cho con người rất\nnhiều khó khăn trong việc chắt lọc ra các thông tin có ích để thu được các tri thức mới.\nPhát hiện tri thức và khai phá dữ liệu là câu trả lời mới nhất cho vấn đề này nhằm phát\nhiện ra các tri thức mới từ khối dữ liệu khổng lồ mà con người có được.\nTrong các loại dữ liệu thì văn bản là loại dữ liệu phổ biến mà con người thường\ngặp phải nhất. Mô hình biểu diễn văn bản phổ biến hiện nay là mô hình không gian\nvector, trong đó mỗi văn bản được biểu diễn bằng một vector của các từ khóa. Tuy nhiên\nbài toán khai phá dữ liệu văn bản thường gặp phải một số khó khăn như tính nhiều chiều\ncủa văn bản, tính nhập nhằng của ngôn ngữ… Trong khóa luận này, chúng tôi xin đề cập"
+        },
+        {
+          "id": "6f27529d88ed:p7:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 7,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 1. KHAI PHÁ DỮ LIỆU VĂN BẢN\n1.1. Tổng quan về khai phá dữ liệu\n1.1.1. Khái niệm\nKhai phá dữ liệu[1][7][13] là một khái niệm ra đời vào những năm cuối của thập\nkỷ 80 của thế kỷ 20. Nó bao hàm một loạt các kỹ thuật nhằm phát hiện ra các thông tin có\ngiá trị tiềm ẩn trong các tập dữ liệu lớn như các kho dữ liệu, các cơ sở dữ liệu (CSDL) có\ndung lượng rất lớn. Về bản chất, khai phá dữ liệu liên quan đến việc phân tích các dữ liệu\nvà sử dụng các kỹ thuật để tìm ra các mẫu có tính hệ thống trong tập dữ liệu.\n Một số định nghĩa tiêu biểu về Data mining:\nKhái niệm data mining được định nghĩa như sau: “The nontrivial extraction\nof implicit, previously unknown, and potentially useful information from data” [13], tạm\ndịch: “là việc trích rút một cách phức tạp các thông tin - ẩn, không biết trước và có khả\nnăng hữu ích - từ dữ liệu”.\n“The science of extracting useful information from large data sets or databases”\n[1], tạm dịch là: “Nghành khoa học chuyên trích chọn những thông tin có giá trị từ những\ntập dữ liệu lớn hoặc các CSDL”."
+        },
+        {
+          "id": "6f27529d88ed:p41:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 41,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nMục đích chính là tính được xác suất Pr(Cj, d′) , xác suất để văn bản d′ nằm trong\nlớp Cj . Theo Bayes, văn bản d′ sẽ được gán vào lớp Cj nào có xác suất Pr(Cj, d)′ cao nhất.\nCông thức sau dùng để tính Pr(Cj, d′):\nTrong đó:\n- TF(wi,,d′) là số lần xuất hiện của từ wi trong văn bản d′\n- |d′| là số lượng các từ trong văn bản d′\n- wi là một từ trong không gian đặc trưng F với số chiều là |F|\n- Pr(Cj): là tỷ lệ phần trăm của số văn bản mỗi lớp tương ứng trong tập dữ liệu\nluyện:\nPr(wi|Cj) sử dụng phép ước lượng Laplace:\nNaive Bayes là một phương pháp rất hiệu quả trong một số trường hợp. Nếu tập\ndữ liệu huấn luyện nghèo nàn và các tham số dự đoán (như không gian đặc trưng) có chất\nlượng kém thì sẽ dẫn đến kết quả tồi. Tuy nhiên, nó được đánh giá là một thuật toán phân\nlớp tuyến tính thích hợp trong phân lớp văn bản nhiều chủ đề với một số ưu điểm: cài đặt\nđơn giản, tốc độ nhanh, dễ dàng cập nhật dữ liệu huấn luyện mới và có tính độc lập cao\n37"
+        },
+        {
+          "id": "6f27529d88ed:p50:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 50,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 50 văn bản. Trong đó: Traning set: 34, Test set: 16.\nSau khi thử với một số giá trị của tham số k, chúng tôi thấy k = 2, có kết quả phân\nlớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả output như sau:\nCorrectly Classified Instanse: 10 62.5%\nInCorrectly Classified Instances: 6 37.5%\n----------------------\nPrecision Recall F1 Class\n1 0.25 0.4 rec.autos_25\n0.571 1 0.72 rec.Sport_25\n----------------------\na b <---classified as\n2 6 | a = rec.autos_25\n0 8 | b = rec.sport_25\n46"
+        }
+      ],
+      "events": [
+        {
+          "event": "search",
+          "query": "20newsgroup bộ dữ liệu số lượng tài liệu",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p47:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 47,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 94
+              },
+              "score": 0.03278688524590164,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "6f27529d88ed:p52:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 100 văn bản. Trong đó: Traning set: 64, Test set: 32.\nCũng giống như với bộ dữ liệu gồm 50 văn bản, chúng tôi nhận thấy rằng trong\nbộ dữ liệu này, k = 2 cho ta kết quả phân lớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả ra như sau:\nCorrectly Classified Instanse: 23 71.875%\nInCorrectly Classified Instances: 9 28.125%\n----------------------\nPrecision Recall F1 Class\n1 0.438 0.609 rec.autos_50\n0.64 1 0.780 rec.Sport_50\n----------------------\na b <---classified as\n7 9 | a = rec.autos_50\n0 16 | b = rec.sport_50\n48",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 52,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 102
+              },
+              "score": 0.030621785881252923,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030621785881252923
+            },
+            {
+              "id": "6f27529d88ed:p5:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nMỞ ĐẦU\nNgày nay, sự phát triển mạnh mẽ của Internet đã dẫn đến sự bùng nổ thông tin về\nnhiều mặt kể cả về nội dung lẫn số lượng. Chỉ bằng một thao tác tìm kiếm đơn giản, ta có\nthể nhận về một khối lượng khổng lồ các trang web có chứa thông tin liên quan tới nội\ndung ta tìm kiếm. Tuy nhiên, chính sự dễ dàng này cũng mang đến cho con người rất\nnhiều khó khăn trong việc chắt lọc ra các thông tin có ích để thu được các tri thức mới.\nPhát hiện tri thức và khai phá dữ liệu là câu trả lời mới nhất cho vấn đề này nhằm phát\nhiện ra các tri thức mới từ khối dữ liệu khổng lồ mà con người có được.\nTrong các loại dữ liệu thì văn bản là loại dữ liệu phổ biến mà con người thường\ngặp phải nhất. Mô hình biểu diễn văn bản phổ biến hiện nay là mô hình không gian\nvector, trong đó mỗi văn bản được biểu diễn bằng một vector của các từ khóa. Tuy nhiên\nbài toán khai phá dữ liệu văn bản thường gặp phải một số khó khăn như tính nhiều chiều\ncủa văn bản, tính nhập nhằng của ngôn ngữ… Trong khóa luận này, chúng tôi xin đề cập",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 5,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 9
+              },
+              "score": 0.02877846790890269,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.02877846790890269
+            },
+            {
+              "id": "6f27529d88ed:p7:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 1. KHAI PHÁ DỮ LIỆU VĂN BẢN\n1.1. Tổng quan về khai phá dữ liệu\n1.1.1. Khái niệm\nKhai phá dữ liệu[1][7][13] là một khái niệm ra đời vào những năm cuối của thập\nkỷ 80 của thế kỷ 20. Nó bao hàm một loạt các kỹ thuật nhằm phát hiện ra các thông tin có\ngiá trị tiềm ẩn trong các tập dữ liệu lớn như các kho dữ liệu, các cơ sở dữ liệu (CSDL) có\ndung lượng rất lớn. Về bản chất, khai phá dữ liệu liên quan đến việc phân tích các dữ liệu\nvà sử dụng các kỹ thuật để tìm ra các mẫu có tính hệ thống trong tập dữ liệu.\n Một số định nghĩa tiêu biểu về Data mining:\nKhái niệm data mining được định nghĩa như sau: “The nontrivial extraction\nof implicit, previously unknown, and potentially useful information from data” [13], tạm\ndịch: “là việc trích rút một cách phức tạp các thông tin - ẩn, không biết trước và có khả\nnăng hữu ích - từ dữ liệu”.\n“The science of extracting useful information from large data sets or databases”\n[1], tạm dịch là: “Nghành khoa học chuyên trích chọn những thông tin có giá trị từ những\ntập dữ liệu lớn hoặc các CSDL”.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 7,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 13
+              },
+              "score": 0.02844551282051282,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.02844551282051282
+            },
+            {
+              "id": "6f27529d88ed:p41:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nMục đích chính là tính được xác suất Pr(Cj, d′) , xác suất để văn bản d′ nằm trong\nlớp Cj . Theo Bayes, văn bản d′ sẽ được gán vào lớp Cj nào có xác suất Pr(Cj, d)′ cao nhất.\nCông thức sau dùng để tính Pr(Cj, d′):\nTrong đó:\n- TF(wi,,d′) là số lần xuất hiện của từ wi trong văn bản d′\n- |d′| là số lượng các từ trong văn bản d′\n- wi là một từ trong không gian đặc trưng F với số chiều là |F|\n- Pr(Cj): là tỷ lệ phần trăm của số văn bản mỗi lớp tương ứng trong tập dữ liệu\nluyện:\nPr(wi|Cj) sử dụng phép ước lượng Laplace:\nNaive Bayes là một phương pháp rất hiệu quả trong một số trường hợp. Nếu tập\ndữ liệu huấn luyện nghèo nàn và các tham số dự đoán (như không gian đặc trưng) có chất\nlượng kém thì sẽ dẫn đến kết quả tồi. Tuy nhiên, nó được đánh giá là một thuật toán phân\nlớp tuyến tính thích hợp trong phân lớp văn bản nhiều chủ đề với một số ưu điểm: cài đặt\nđơn giản, tốc độ nhanh, dễ dàng cập nhật dữ liệu huấn luyện mới và có tính độc lập cao\n37",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 41,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 84
+              },
+              "score": 0.02786377708978328,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.02786377708978328
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p47:c1",
+            "6f27529d88ed:p52:c1",
+            "6f27529d88ed:p5:c1",
+            "6f27529d88ed:p7:c1",
+            "6f27529d88ed:p41:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p47:c1",
+            "6f27529d88ed:p52:c1",
+            "6f27529d88ed:p5:c1",
+            "6f27529d88ed:p7:c1",
+            "6f27529d88ed:p41:c1"
+          ],
+          "context_chars": 5182
+        },
+        {
+          "event": "search",
+          "query": "20 Newsgroups dataset documents",
+          "method": "dense",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p47:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 47,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 94
+              },
+              "score": 0.6785171031951904,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p52:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 100 văn bản. Trong đó: Traning set: 64, Test set: 32.\nCũng giống như với bộ dữ liệu gồm 50 văn bản, chúng tôi nhận thấy rằng trong\nbộ dữ liệu này, k = 2 cho ta kết quả phân lớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả ra như sau:\nCorrectly Classified Instanse: 23 71.875%\nInCorrectly Classified Instances: 9 28.125%\n----------------------\nPrecision Recall F1 Class\n1 0.438 0.609 rec.autos_50\n0.64 1 0.780 rec.Sport_50\n----------------------\na b <---classified as\n7 9 | a = rec.autos_50\n0 16 | b = rec.sport_50\n48",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 52,
+              "metadata": {
+                "chunk_index": 102,
+                "page_chunk": 1
+              },
+              "score": 0.600143313407898,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p50:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 50 văn bản. Trong đó: Traning set: 34, Test set: 16.\nSau khi thử với một số giá trị của tham số k, chúng tôi thấy k = 2, có kết quả phân\nlớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả output như sau:\nCorrectly Classified Instanse: 10 62.5%\nInCorrectly Classified Instances: 6 37.5%\n----------------------\nPrecision Recall F1 Class\n1 0.25 0.4 rec.autos_25\n0.571 1 0.72 rec.Sport_25\n----------------------\na b <---classified as\n2 6 | a = rec.autos_25\n0 8 | b = rec.sport_25\n46",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 50,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 100
+              },
+              "score": 0.5837929248809814,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p53:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Biểu diễn văn bản bằng các khái niệm mờ:\nKết quả ra như sau:\nCorrectly Classified Instanse: 27 84.375%\nInCorrectly Classified Instances: 5 15.625%\n----------------------\nPrecision Recall F1 Class\n1 0.688 0.815 rec.autos_50\n0.762 1 0.865 rec.Sport_50\n----------------------\na b <---classified as\n11 5 | a = rec.autos_50\n0 16 | b = rec.sport_50\n Khi phân lớp với bộ dữ liệu 500 văn bản. Trong đó: Traning set: 334, Test\nset: 166. Không giống với hai trường hợp trên, trong trường hợp này, k = 8 sẽ cho\nkết quả phân lớp tốt nhất.\n49",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 53,
+              "metadata": {
+                "chunk_index": 103,
+                "page_chunk": 1
+              },
+              "score": 0.5654770135879517,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p59:c2",
+              "text": "Sebastiani, Machine learning in automated text categorization, Technical\nReport IEI-B4-31-1999, Consiglio Nazionale delle Ricerche, Pisa, Italy, 1999.\n[6]. G. Piatetsky Shapiro, W. Frawley (Eds), Knowledge Discovery in Databases,\nMIT Cambridge, MA,1991.\n[7]. Ian H.Witten, Eibe Frank, Data Mining: Practical Machine Learning Tools\nand Techniques, 2nd edition, June 2005\n[8]Maria-Luiza Antonie, Osmar R. Zaıane, Text Document Categorization by\nTerm Association, IEEE International Conference on Data Mining, pages 19--26,\nDecember 2002.\n55",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 59,
+              "metadata": {
+                "chunk_index": 111,
+                "page_chunk": 2
+              },
+              "score": 0.5631808638572693,
+              "method": "dense"
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p47:c1",
+            "6f27529d88ed:p52:c1",
+            "6f27529d88ed:p5:c1",
+            "6f27529d88ed:p7:c1",
+            "6f27529d88ed:p41:c1",
+            "6f27529d88ed:p50:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p50:c1"
+          ],
+          "context_chars": 5821
+        },
+        {
+          "event": "answer",
+          "citation_ids": [
+            "6f27529d88ed:p47:c1"
+          ],
+          "citation_ids_in_context": true,
+          "validation_error": null,
+          "invalid_citation_ids": []
+        }
+      ],
+      "elapsed_ms": 13386.2,
+      "split": "test",
+      "answerable": true
+    },
+    {
+      "query_id": "test-05",
+      "question": "Với bộ 50 văn bản, biểu diễn bằng khái niệm mờ phân loại đúng bao nhiêu phần trăm?",
+      "status": "abstain",
+      "answer": "Tài liệu hiện có không cung cấp đủ bằng chứng để trả lời câu hỏi này.",
+      "model_answer": "Tài liệu không cung cấp đủ bằng chứng để xác định tỷ lệ phần trăm phân loại đúng cho bộ 50 văn bản khi biểu diễn bằng khái niệm mờ.",
+      "citation_validation_error": "model_abstained",
+      "citations": [],
+      "model": "qwen/qwen3.8-flash",
+      "search_count": 3,
+      "context_ids": [
+        "6f27529d88ed:p36:c1",
+        "6f27529d88ed:p5:c2",
+        "6f27529d88ed:p34:c1",
+        "6f27529d88ed:p2:c1",
+        "6f27529d88ed:p27:c1"
+      ],
+      "context": [
+        {
+          "id": "6f27529d88ed:p36:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 36,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.2. Biểu diễn văn bản\nVới cách định nghĩa khái niệm mờ như trên, ta có thể biểu diễn văn bản bằng\ncách xem nó như một vector có các thành phần là các khái niệm mờ thay vì một vector\nvới các thành phần là các từ khóa.\nKhi đó, một văn bản d sẽ được biểu diễn dưới dạng sau:\nd = µ(c1*)/ c1* + µ(c2*)/c2* + … + µ(cn*)/(cn*)\nTrong đó µ(ci*) là là mức độ quan trọng của khái niệm mờ c*i của văn bản. µ(ci*)\nđược xác định bằng hàm tích hợp mờ của tập các từ khóa liên quan đến khái niệm ci* .\nChú ý rằng trong phương pháp biểu diễn này, một từ khóa cũng có thể coi như là\nmột khái niệm mờ khi đồng nhất từ khóa với khái niệm mờ.\nNếu trong các khái niệm, khái niệm nào có các từ khóa liên quan đến văn bản lớn\nhơn thì trọng số của nó sẽ lớn hơn, và như vậy ngữ nghĩa của nó cũng sẽ rõ ràng hơn.\nMột vấn đề đặt ra là tìm tập các từ khóa biểu diễn cho một khái niệm mờ, các từ\nkhóa này phải liên quan đến nhau và có nghĩa tương tự nhau. Việc phát triển một thuật\ntoán như vậy hiện nay còn là một vấn đề. Thông thường có hai cách chính như sau:\n1."
+        },
+        {
+          "id": "6f27529d88ed:p5:c2",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 5,
+          "text": "i phá dữ liệu văn bản thường gặp phải một số khó khăn như tính nhiều chiều\ncủa văn bản, tính nhập nhằng của ngôn ngữ… Trong khóa luận này, chúng tôi xin đề cập\nđến một cách biểu diễn văn bản mới: biểu diễn dựa trên các khái niệm mờ. Trong đó, mỗi\nkhái niệm sẽ được xác định bởi một tập các từ khóa liên quan. Và mức độ liên quan của\nkhái niệm đến văn bản sẽ được xác định bằng hàm tích hợp mờ các từ khóa đó. Sau khi đã\ncó một tập các khái niệm liên quan đến một hay nhiều chủ đề cần phần lớp, mỗi văn bản\nsẽ được xem như là một vector có các thành phần là các khái niệm mờ đó.\nVới lượng thông tin dạng văn bản đồ sộ của Internet, một yêu cầu lớn đặt ra đối\nvới chúng ta là làm sao tổ chức và tìm kiếm thông tin có hiệu quả nhất. Phân lớp (phân\nloại) thông tin là một trong những giải pháp hợp lý cho yêu cầu trên. Khóa luận sẽ trình\nbày một số thuật toán phân lớp tiêu biểu và đưa ra hướng thực nghiệm cho phương pháp\nbiểu diễn văn bản dựa trên các khái niêm mờ.\nChúng tôi áp dụng thuật toán KNN (k – người láng giềng gần nhất) và phần mềm\nWEKA (K-người láng giếng gần nhất) để tiến hành phân lớp."
+        },
+        {
+          "id": "6f27529d88ed:p34:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 34,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.1. Khái niệm mờ\nCó một tập gồm m văn bản: D=(d1, d2, …dm).\nKhí đó xác định được một tập p từ khóa: K = (k1, k2, … kp)\nMột khái niệm có thể là một từ khóa theo nghĩa thông thường, trong đó gồm các từ có liên\nquan đến từ khóa đó. Ví dụ với khái niệm là “bệnh viện”, nó có thể bao gồm 1 số từ khóa:\n“bác sĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”\nGọi C là tập gồm có n khái niệm liên quan đến văn bản, C được kí hiệu như sau:\nC = {c1, c2, …cn}\nTrong đó: ci là khái niệm do người dùng xác định. Giả sử một khái niệm ci sẽ bao\ngồm các từ khóa có liên quan, ci = {k1, k2, …kp}, trong đó ki là các từ khóa trong tập từ\nđiển và có liên quan đến khái niệm ci. Trong ví dụ trên chúng ta có “bệnh viện” = {“bác\nsĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”}.\nĐịnh nghĩa 3.3: Khái niệm mờ\nMột tập mờ tương ứng với khái niệm trong đó hàm thuộc của nó được xác định\nbằng độ quan trọng của các từ khóa có liên quan tới khái niệm đó được gọi là một khái\nniệm mờ, kí hiệu c* . Ta có thể biểu diễn khái niệm mờ qua tập từ khóa như sau:"
+        },
+        {
+          "id": "6f27529d88ed:p2:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 2,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTÓM TẮT\nBiểu diễn văn bản là một trong những công đoạn quan trọng nhất và được quan\ntâm đầu tiên trong các vấn đề xử lý văn bản. Nó có ảnh hưởng rất lớn đến các bài toán tìm\nkiếm văn bản, phân lớp, phân cụm hay tóm tắt văn bản… Khóa luận này trình bày và\nnghiên cứu một phương pháp biểu diễn văn bản mới dựa trên cơ sở lý thuyết tập mờ và áp\ndụng vào bài toán phân lớp văn bản. Nội dung của khóa luận tập trung vào các vấn đề\nsau:\n1. Trình bày một số phương pháp biểu diễn văn bản thông thường, trong đó, khóa\nluận đi sâu vào cách biểu diễn theo mô hình vector, tức mỗi văn bản sẽ được biểu diễn\nnhư một vector có các thành phần là các từ khóa có mặt hoặc không có mặt trong văn bản.\nSau đó, khóa luận tìm hiểu phương pháp biểu diễn văn bản trong máy tìm kiếm.\n2. Trình bày về lý thuyết tập mờ, và đề cập một cách biểu diễn văn bản mới dựa\ntrên các khái niệm mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản."
+        },
+        {
+          "id": "6f27529d88ed:p27:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 27,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 3. BIỂU DIỄN VĂN BẢN SỬ DỤNG CÁC KHÁI\nNIỆM MỜ\nTrong chương này chúng tôi sẽ trình bày một số khái niệm cơ bản về tập mờ, tiến\nhành định nghĩa các khái niệm mờ và một số tính chất của các khái niệm mờ thông qua\nviệc tích hợp các từ khóa và mối quan hệ giữa chúng với nhau. Từ đó, sẽ giới thiệu\nphương pháp biểu diễn văn bản theo khái niệm mờ.\n3.1. Lý thuyết mờ\nCó thể nói cho đến nay, phần lớn các thành tựu của khoa học của loài người đều\ndựa trên lập luận logic rất chặt chẽ mà nền tảng của các lập luận này là đại số logic Bool.\nTrong đại số logic Bool mọi toán hạng, biểu thức chỉ có giá trị 0 (false) hoặc 1 (true). Tuy\nnhiên trên thực tế điều này không luôn luôn đúng, nhiều hiện tượng trong tự nhiên và xã\nhội không thể biểu diễn rõ ràng như vậy. Để có thể phản ánh đúng bản chất của các sự\nvật, hiện tượng diễn ra trong thực tế, buộc người ta phải mở rộng đại số Bool để sao cho\ncác toán hạng, các biểu thức có thể nhận giá trị không chỉ là 0 hoặc 1 mà chúng có thể\nnhận giá trị nào đó nằm giữa 0 và 1."
+        }
+      ],
+      "events": [
+        {
+          "event": "search",
+          "query": "bộ 50 văn bản biểu diễn bằng khái niệm mờ phân loại đúng",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p36:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.2. Biểu diễn văn bản\nVới cách định nghĩa khái niệm mờ như trên, ta có thể biểu diễn văn bản bằng\ncách xem nó như một vector có các thành phần là các khái niệm mờ thay vì một vector\nvới các thành phần là các từ khóa.\nKhi đó, một văn bản d sẽ được biểu diễn dưới dạng sau:\nd = µ(c1*)/ c1* + µ(c2*)/c2* + … + µ(cn*)/(cn*)\nTrong đó µ(ci*) là là mức độ quan trọng của khái niệm mờ c*i của văn bản. µ(ci*)\nđược xác định bằng hàm tích hợp mờ của tập các từ khóa liên quan đến khái niệm ci* .\nChú ý rằng trong phương pháp biểu diễn này, một từ khóa cũng có thể coi như là\nmột khái niệm mờ khi đồng nhất từ khóa với khái niệm mờ.\nNếu trong các khái niệm, khái niệm nào có các từ khóa liên quan đến văn bản lớn\nhơn thì trọng số của nó sẽ lớn hơn, và như vậy ngữ nghĩa của nó cũng sẽ rõ ràng hơn.\nMột vấn đề đặt ra là tìm tập các từ khóa biểu diễn cho một khái niệm mờ, các từ\nkhóa này phải liên quan đến nhau và có nghĩa tương tự nhau. Việc phát triển một thuật\ntoán như vậy hiện nay còn là một vấn đề. Thông thường có hai cách chính như sau:\n1.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 36,
+              "metadata": {
+                "chunk_index": 74,
+                "page_chunk": 1
+              },
+              "score": 0.031544957774465976,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031544957774465976
+            },
+            {
+              "id": "6f27529d88ed:p5:c2",
+              "text": "i phá dữ liệu văn bản thường gặp phải một số khó khăn như tính nhiều chiều\ncủa văn bản, tính nhập nhằng của ngôn ngữ… Trong khóa luận này, chúng tôi xin đề cập\nđến một cách biểu diễn văn bản mới: biểu diễn dựa trên các khái niệm mờ. Trong đó, mỗi\nkhái niệm sẽ được xác định bởi một tập các từ khóa liên quan. Và mức độ liên quan của\nkhái niệm đến văn bản sẽ được xác định bằng hàm tích hợp mờ các từ khóa đó. Sau khi đã\ncó một tập các khái niệm liên quan đến một hay nhiều chủ đề cần phần lớp, mỗi văn bản\nsẽ được xem như là một vector có các thành phần là các khái niệm mờ đó.\nVới lượng thông tin dạng văn bản đồ sộ của Internet, một yêu cầu lớn đặt ra đối\nvới chúng ta là làm sao tổ chức và tìm kiếm thông tin có hiệu quả nhất. Phân lớp (phân\nloại) thông tin là một trong những giải pháp hợp lý cho yêu cầu trên. Khóa luận sẽ trình\nbày một số thuật toán phân lớp tiêu biểu và đưa ra hướng thực nghiệm cho phương pháp\nbiểu diễn văn bản dựa trên các khái niêm mờ.\nChúng tôi áp dụng thuật toán KNN (k – người láng giềng gần nhất) và phần mềm\nWEKA (K-người láng giếng gần nhất) để tiến hành phân lớp.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 5,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 10
+              },
+              "score": 0.030834914611005692,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030834914611005692
+            },
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.1. Khái niệm mờ\nCó một tập gồm m văn bản: D=(d1, d2, …dm).\nKhí đó xác định được một tập p từ khóa: K = (k1, k2, … kp)\nMột khái niệm có thể là một từ khóa theo nghĩa thông thường, trong đó gồm các từ có liên\nquan đến từ khóa đó. Ví dụ với khái niệm là “bệnh viện”, nó có thể bao gồm 1 số từ khóa:\n“bác sĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”\nGọi C là tập gồm có n khái niệm liên quan đến văn bản, C được kí hiệu như sau:\nC = {c1, c2, …cn}\nTrong đó: ci là khái niệm do người dùng xác định. Giả sử một khái niệm ci sẽ bao\ngồm các từ khóa có liên quan, ci = {k1, k2, …kp}, trong đó ki là các từ khóa trong tập từ\nđiển và có liên quan đến khái niệm ci. Trong ví dụ trên chúng ta có “bệnh viện” = {“bác\nsĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”}.\nĐịnh nghĩa 3.3: Khái niệm mờ\nMột tập mờ tương ứng với khái niệm trong đó hàm thuộc của nó được xác định\nbằng độ quan trọng của các từ khóa có liên quan tới khái niệm đó được gọi là một khái\nniệm mờ, kí hiệu c* . Ta có thể biểu diễn khái niệm mờ qua tập từ khóa như sau:",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 70
+              },
+              "score": 0.03076923076923077,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03076923076923077
+            },
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTÓM TẮT\nBiểu diễn văn bản là một trong những công đoạn quan trọng nhất và được quan\ntâm đầu tiên trong các vấn đề xử lý văn bản. Nó có ảnh hưởng rất lớn đến các bài toán tìm\nkiếm văn bản, phân lớp, phân cụm hay tóm tắt văn bản… Khóa luận này trình bày và\nnghiên cứu một phương pháp biểu diễn văn bản mới dựa trên cơ sở lý thuyết tập mờ và áp\ndụng vào bài toán phân lớp văn bản. Nội dung của khóa luận tập trung vào các vấn đề\nsau:\n1. Trình bày một số phương pháp biểu diễn văn bản thông thường, trong đó, khóa\nluận đi sâu vào cách biểu diễn theo mô hình vector, tức mỗi văn bản sẽ được biểu diễn\nnhư một vector có các thành phần là các từ khóa có mặt hoặc không có mặt trong văn bản.\nSau đó, khóa luận tìm hiểu phương pháp biểu diễn văn bản trong máy tìm kiếm.\n2. Trình bày về lý thuyết tập mờ, và đề cập một cách biểu diễn văn bản mới dựa\ntrên các khái niệm mờ. Từ đó đề xuất hướng giải quyết khi xuất hiện các từ đồng nghĩa\ntrong văn bản.\n3. Tiến hành thử nghiệm cách biểu diễn mới này vào bài toán phân lớp văn bản.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "metadata": {
+                "chunk_index": 1,
+                "page_chunk": 1
+              },
+              "score": 0.030117753623188408,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030117753623188408
+            },
+            {
+              "id": "6f27529d88ed:p27:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 3. BIỂU DIỄN VĂN BẢN SỬ DỤNG CÁC KHÁI\nNIỆM MỜ\nTrong chương này chúng tôi sẽ trình bày một số khái niệm cơ bản về tập mờ, tiến\nhành định nghĩa các khái niệm mờ và một số tính chất của các khái niệm mờ thông qua\nviệc tích hợp các từ khóa và mối quan hệ giữa chúng với nhau. Từ đó, sẽ giới thiệu\nphương pháp biểu diễn văn bản theo khái niệm mờ.\n3.1. Lý thuyết mờ\nCó thể nói cho đến nay, phần lớn các thành tựu của khoa học của loài người đều\ndựa trên lập luận logic rất chặt chẽ mà nền tảng của các lập luận này là đại số logic Bool.\nTrong đại số logic Bool mọi toán hạng, biểu thức chỉ có giá trị 0 (false) hoặc 1 (true). Tuy\nnhiên trên thực tế điều này không luôn luôn đúng, nhiều hiện tượng trong tự nhiên và xã\nhội không thể biểu diễn rõ ràng như vậy. Để có thể phản ánh đúng bản chất của các sự\nvật, hiện tượng diễn ra trong thực tế, buộc người ta phải mở rộng đại số Bool để sao cho\ncác toán hạng, các biểu thức có thể nhận giá trị không chỉ là 0 hoặc 1 mà chúng có thể\nnhận giá trị nào đó nằm giữa 0 và 1.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 27,
+              "metadata": {
+                "chunk_index": 57,
+                "page_chunk": 1
+              },
+              "score": 0.029957522915269395,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.029957522915269395
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p36:c1",
+            "6f27529d88ed:p5:c2",
+            "6f27529d88ed:p34:c1",
+            "6f27529d88ed:p2:c1",
+            "6f27529d88ed:p27:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p36:c1",
+            "6f27529d88ed:p5:c2",
+            "6f27529d88ed:p34:c1",
+            "6f27529d88ed:p2:c1",
+            "6f27529d88ed:p27:c1"
+          ],
+          "context_chars": 5764
+        },
+        {
+          "event": "search",
+          "query": "50 văn bản khái niệm mờ accuracy phân loại",
+          "method": "dense",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p53:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Biểu diễn văn bản bằng các khái niệm mờ:\nKết quả ra như sau:\nCorrectly Classified Instanse: 27 84.375%\nInCorrectly Classified Instances: 5 15.625%\n----------------------\nPrecision Recall F1 Class\n1 0.688 0.815 rec.autos_50\n0.762 1 0.865 rec.Sport_50\n----------------------\na b <---classified as\n11 5 | a = rec.autos_50\n0 16 | b = rec.sport_50\n Khi phân lớp với bộ dữ liệu 500 văn bản. Trong đó: Traning set: 334, Test\nset: 166. Không giống với hai trường hợp trên, trong trường hợp này, k = 8 sẽ cho\nkết quả phân lớp tốt nhất.\n49",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 53,
+              "metadata": {
+                "chunk_index": 103,
+                "page_chunk": 1
+              },
+              "score": 0.7287304401397705,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p54:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả như sau:\nCorrectly Classified Instanse: 131 78.916%\nInCorrectly Classified Instances: 35 24.084%\n----------------------\nPrecision Recall F1 Class\n0.929 0.627 0.748 rec.autos_250\n0.718 0.952 0.818 rec.Sport_250\n----------------------\na b <---classified as\n52 31 | a = rec.autos_250\n4 79 | b = rec.sport_250\n Biểu diễn văn bản bằng tập các khái niệm mờ:\n50",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 54,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 104
+              },
+              "score": 0.7239811420440674,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p51:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Biểu diễn bằng các khái niệm mờ:\nKết quả output như sau:\nCorrectly Classified Instanse: 13 81.25%\nInCorrectly Classified Instances: 3 18.75%\n----------------------\nPrecision Recall F1 Class\n1 0.625 0.769 rec.autos_25\n0.727 1 0.842 rec.Sport_25\n----------------------\na b <---classified as\n5 3 | a = rec.autos_25\n0 8 | b = rec.sport_25\n47",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 51,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 101
+              },
+              "score": 0.6835634708404541,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p5:c2",
+              "text": "i phá dữ liệu văn bản thường gặp phải một số khó khăn như tính nhiều chiều\ncủa văn bản, tính nhập nhằng của ngôn ngữ… Trong khóa luận này, chúng tôi xin đề cập\nđến một cách biểu diễn văn bản mới: biểu diễn dựa trên các khái niệm mờ. Trong đó, mỗi\nkhái niệm sẽ được xác định bởi một tập các từ khóa liên quan. Và mức độ liên quan của\nkhái niệm đến văn bản sẽ được xác định bằng hàm tích hợp mờ các từ khóa đó. Sau khi đã\ncó một tập các khái niệm liên quan đến một hay nhiều chủ đề cần phần lớp, mỗi văn bản\nsẽ được xem như là một vector có các thành phần là các khái niệm mờ đó.\nVới lượng thông tin dạng văn bản đồ sộ của Internet, một yêu cầu lớn đặt ra đối\nvới chúng ta là làm sao tổ chức và tìm kiếm thông tin có hiệu quả nhất. Phân lớp (phân\nloại) thông tin là một trong những giải pháp hợp lý cho yêu cầu trên. Khóa luận sẽ trình\nbày một số thuật toán phân lớp tiêu biểu và đưa ra hướng thực nghiệm cho phương pháp\nbiểu diễn văn bản dựa trên các khái niêm mờ.\nChúng tôi áp dụng thuật toán KNN (k – người láng giềng gần nhất) và phần mềm\nWEKA (K-người láng giếng gần nhất) để tiến hành phân lớp.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 5,
+              "metadata": {
+                "chunk_index": 10,
+                "page_chunk": 2
+              },
+              "score": 0.6688400506973267,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n3.2.1. Khái niệm mờ\nCó một tập gồm m văn bản: D=(d1, d2, …dm).\nKhí đó xác định được một tập p từ khóa: K = (k1, k2, … kp)\nMột khái niệm có thể là một từ khóa theo nghĩa thông thường, trong đó gồm các từ có liên\nquan đến từ khóa đó. Ví dụ với khái niệm là “bệnh viện”, nó có thể bao gồm 1 số từ khóa:\n“bác sĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”\nGọi C là tập gồm có n khái niệm liên quan đến văn bản, C được kí hiệu như sau:\nC = {c1, c2, …cn}\nTrong đó: ci là khái niệm do người dùng xác định. Giả sử một khái niệm ci sẽ bao\ngồm các từ khóa có liên quan, ci = {k1, k2, …kp}, trong đó ki là các từ khóa trong tập từ\nđiển và có liên quan đến khái niệm ci. Trong ví dụ trên chúng ta có “bệnh viện” = {“bác\nsĩ”, “y tá”, “bệnh nhân”, “ống nghe”, “thuốc”}.\nĐịnh nghĩa 3.3: Khái niệm mờ\nMột tập mờ tương ứng với khái niệm trong đó hàm thuộc của nó được xác định\nbằng độ quan trọng của các từ khóa có liên quan tới khái niệm đó được gọi là một khái\nniệm mờ, kí hiệu c* . Ta có thể biểu diễn khái niệm mờ qua tập từ khóa như sau:",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 70
+              },
+              "score": 0.6558094620704651,
+              "method": "dense"
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p36:c1",
+            "6f27529d88ed:p5:c2",
+            "6f27529d88ed:p34:c1",
+            "6f27529d88ed:p2:c1",
+            "6f27529d88ed:p27:c1"
+          ],
+          "added_context_ids": [],
+          "context_chars": 5764
+        },
+        {
+          "event": "search",
+          "query": "kết quả thực nghiệm phân lớp 50 văn bản tỷ lệ phân loại đúng phần trăm",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p12:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nTrong phân lớp văn bản, sự tương ứng giữa một văn bản với một lớp hoặc thông\nqua việc gán giá trị đúng sai (True - văn bản thuộc lớp, hay False -văn bản không thuộc\nlớp) hoặc thông qua một độ phụ thuộc (đo độ phụ thuộc của văn bản vào lớp). Trong\ntrường hợp có nhiều lớp thì phân loại đúng sai sẽ là việc xem một văn bản có thuộc vào\nmột lớp duy nhất nào đó hay không.\n Quá trình phân lớp\nQuá trình phân lớp văn bản tuân theo các bước sau:\nĐánh chỉ số: Quá trình đánh chỉ số văn bản cũng giống như trong quá trình đánh\nchỉ số của tìm kiếm văn bản. Trong quá trình này thì tốc độ đánh chỉ số đóng vai trò quan\ntrọng vì xuất hiện lượng đáng kể văn bản mới có thể cần được đánh chỉ số trong thời gian\nthực.\nXác định độ phân lớp: Cũng giống như trong tìm kiếm văn bản, phân lớp văn bản\nyêu cầu quá trình diễn tả việc xác định văn bản đó thuộc lớp nào đó ra sao (mô hình phân\nlớp) dựa trên cấu trúc biểu diễn của nó. Đối với hệ phân lớp văn bản, chúng ta gọi quá\ntrình này là bộ phân lớp (Categorizator hoặc classifier). Nó đóng vai trò như các câu hỏi",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 12,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 27
+              },
+              "score": 0.031754032258064516,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031754032258064516
+            },
+            {
+              "id": "6f27529d88ed:p47:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 47,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 94
+              },
+              "score": 0.030679156908665108,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030679156908665108
+            },
+            {
+              "id": "6f27529d88ed:p4:c2",
+              "text": "ất giải pháp cho vấn đề đồng nghĩa.........................................32\nChương 4. CÁC PHƯƠNG PHÁP PHÂN LỚP VĂN BẢN................................35\n4.1. Tổng quan về bài toán phân lớp............................................................35\n4.2. Các thuật toán phân lớp ........................................................................36\n4.2.1. Phân lớp dựa trên thuật toán Naive Bayes........................................36\n4.2.2. Phân lớp dựa trên thuật toán K - Nearest Neighbor (KNN).............38\n4.2.3. Phân lớp dựa vào thuật toán cây quyết định.....................................39\n4.2.4. Phân lớp sử dụng Support Vector Machines (SVM)........................41\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM ..............................................43\n5.1. Tập dữ liệu và tiền xử lý.......................................................................43\n5.2. Công cụ và phương pháp phân lớp .......................................................44\n5.3. Kết quả thực nghiệm.............................................................................45",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 4,
+              "metadata": {
+                "chunk_index": 7,
+                "page_chunk": 2
+              },
+              "score": 0.029709507042253523,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.029709507042253523
+            },
+            {
+              "id": "6f27529d88ed:p39:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 4. CÁC PHƯƠNG PHÁP PHÂN LỚP VĂN BẢN\nTrong chương này, chúng tôi trình bày về bài toán phân lớp văn bản và các thuật\ntoán áp dụng vào bài toán đó.\n4.1. Tổng quan về bài toán phân lớp\nPhân lớp văn bản tự động là một lĩnh vực được chú ý nhất trong những năm gần\nđây. Để phân lớp người ta sử dụng nhiều cách tiếp cận khác nhau như dựa trên từ khóa,\ndựa trên ngữ nghĩa các từ có tần số xuất hiện cao, mô hình Maximum Entropy, tập thô,\ntập mờ … Một số lượng lớn các phương pháp phân lớp đã được áp dụng thành công trên\nngôn ngữ này : mô hình hồi quy , phân lớp dựa trên láng giềng gần nhất (k-nearest\nneighbors), phương pháp dựa trên xác suất Naïve Bayes, cây quyết định, học luật quy nạp,\nmạng nơron (neural network), học trực tuyến, và máy vector hỗ trợ (SVM-support vector\nmachine)\nBài toán: Cho một tập hợp các văn bản đã được người dùng phân lớp bằng tay\nvào một số chủ đề có sẵn. Khi đưa vào một văn bản mới, yêu cầu hệ thống chỉ ra tên chủ\nđề phù hợp nhất với văn bản đó.\nTheo cách truyền thống, việc phân lớp văn bản có thể thực hiện một cách thủ",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 39,
+              "metadata": {
+                "chunk_index": 79,
+                "page_chunk": 1
+              },
+              "score": 0.02919863597612958,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.02919863597612958
+            },
+            {
+              "id": "6f27529d88ed:p12:c2",
+              "text": "trúc biểu diễn của nó. Đối với hệ phân lớp văn bản, chúng ta gọi quá\ntrình này là bộ phân lớp (Categorizator hoặc classifier). Nó đóng vai trò như các câu hỏi\ntrong hệ tìm kiếm. Tuy nhiên, trong khi những câu hỏi mang tính nhất thời, thì bộ phân\nlớp được sử dụng một cách ổn định và lâu dài cho quá trình phân lớp.\nSo sánh: Trong hầu hết các bộ phân lớp, mỗi văn bản đều được yêu cầu gán đúng\nsai vào một lớp nào đó. Sự khác nhau lớn nhất đối với quá trình so sánh trong hệ tìm kiếm\nvăn bản là mỗi văn bản chỉ được so sánh với một số lượng các lớp một lần và việc chọn\nquyết định phù hợp còn phụ thuộc vào mối quan hệ giữa các lớp văn bản.\nPhản hồi (Hay thích nghi): Quá trình phản hồi đóng vai trò quan trọng trong hệ\nphân lớp văn bản. Thứ nhất, khi phân lớp thì phải có môt số lượng lớn các văn bản đã\nđược xếp loại bằng tay trước đó, các văn bản này được sử dụng làm mẫu huấn luyện để\nhỗ trợ xây dựng bộ phân lớp. Thứ hai, đối với việc phân lớp văn bản thì không dễ dàng\nthay đổi các yêu cầu như trong quá trình phản hồi của tìm kiếm văn bản bởi vì người dùng",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 12,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 28
+              },
+              "score": 0.028309409888357256,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.028309409888357256
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p36:c1",
+            "6f27529d88ed:p5:c2",
+            "6f27529d88ed:p34:c1",
+            "6f27529d88ed:p2:c1",
+            "6f27529d88ed:p27:c1"
+          ],
+          "added_context_ids": [],
+          "context_chars": 5764
+        },
+        {
+          "event": "search_limit",
+          "tool_call_id": "call_e431bc028f0a49b4aa675f14"
+        },
+        {
+          "event": "abstain",
+          "citation_ids": [],
+          "citation_ids_in_context": false,
+          "validation_error": "model_abstained",
+          "invalid_citation_ids": []
+        }
+      ],
+      "elapsed_ms": 20848.4,
+      "split": "test",
+      "answerable": true
+    },
+    {
+      "query_id": "test-06",
+      "question": "Kết quả phân lớp bằng k-means trên bộ 20newsgroup là bao nhiêu?",
+      "status": "abstain",
+      "answer": "Tài liệu hiện có không cung cấp đủ bằng chứng để trả lời câu hỏi này.",
+      "model_answer": "Tài liệu không cung cấp đủ bằng chứng về kết quả phân lớp bằng **k-means** trên bộ **20newsgroup**.\n\nCác kết quả thực nghiệm được nêu trong tài liệu là phân lớp bằng **KNN** (k – người láng giềng gần nhất), không phải k-means [6f27529d88ed:p5:c3] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 5).",
+      "citation_validation_error": "model_abstained",
+      "citations": [],
+      "model": "qwen/qwen3.8-flash",
+      "search_count": 3,
+      "context_ids": [
+        "6f27529d88ed:p50:c1",
+        "6f27529d88ed:p42:c1",
+        "6f27529d88ed:p5:c3",
+        "6f27529d88ed:p4:c2",
+        "6f27529d88ed:p47:c1",
+        "6f27529d88ed:p52:c1",
+        "6f27529d88ed:p54:c1"
+      ],
+      "context": [
+        {
+          "id": "6f27529d88ed:p50:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 50,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 50 văn bản. Trong đó: Traning set: 34, Test set: 16.\nSau khi thử với một số giá trị của tham số k, chúng tôi thấy k = 2, có kết quả phân\nlớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả output như sau:\nCorrectly Classified Instanse: 10 62.5%\nInCorrectly Classified Instances: 6 37.5%\n----------------------\nPrecision Recall F1 Class\n1 0.25 0.4 rec.autos_25\n0.571 1 0.72 rec.Sport_25\n----------------------\na b <---classified as\n2 6 | a = rec.autos_25\n0 8 | b = rec.sport_25\n46"
+        },
+        {
+          "id": "6f27529d88ed:p42:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 42,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nvới tập huấn luyện, có thể sử dụng kết hợp nhiều tập huấn luyện khác nhau. Thông\nthường, người ta còn đặt thêm một ngưỡng tối ưu để cho kết quả phân lớp khả quan.\n4.2.2. Phân lớp dựa trên thuật toán K - Nearest Neighbor (KNN)\nThuật toán phân lớp KNN [4] là một phương pháp truyền thống và khá nổi tiếng\ntrong hướng tiếp cận dựa trên thống kê, đã được nghiên cứu trong nhận dạng mẫu trong\nvài thập kỷ gần đây.\nNó được đánh giá là một trong những phương pháp tốt nhất và được sử dụng\nngay từ những thời kỳ đầu của phân lớp văn bản .\nMuốn phân lớp một văn bản mới, thuật toán KNN sẽ tính khoảng cách (Euclide,\nCosine …) của văn bản này đến các văn bản trong tập huấn luyện và chọn ra k văn bản có\nkhoảng cách gần nhất, còn gọi là k “láng giềng”. Dùng các khoảng cách vừa tính được\nđánh trọng số cho các chủ đề đã có. Trọng số của một chủ đề sẽ được tính bằng tổng các\nkhoảng cánh từ văn bản cần phân lớp đến các văn bản trong k láng giềng mà có cùng chủ\nđề đó. Những chủ đề không xuất hiện trong tập k văn bản sẽ có trọng số bằng 0. Các chủ"
+        },
+        {
+          "id": "6f27529d88ed:p5:c3",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 5,
+          "text": "a trên các khái niêm mờ.\nChúng tôi áp dụng thuật toán KNN (k – người láng giềng gần nhất) và phần mềm\nWEKA (K-người láng giếng gần nhất) để tiến hành phân lớp. Phần thực nghiệm cho thấy\nrằng phương pháp biểu diễn văn bản dựa khái niệm mờ có kết quả phân lớp tốt hơn so với\nphương pháp biểu diễn văn bản theo vector từ khóa.\nNgoài phần mở đầu và kết luận, nội dung của luận văn được trình bày trong 5\nchương:\n1"
+        },
+        {
+          "id": "6f27529d88ed:p4:c2",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 4,
+          "text": "ất giải pháp cho vấn đề đồng nghĩa.........................................32\nChương 4. CÁC PHƯƠNG PHÁP PHÂN LỚP VĂN BẢN................................35\n4.1. Tổng quan về bài toán phân lớp............................................................35\n4.2. Các thuật toán phân lớp ........................................................................36\n4.2.1. Phân lớp dựa trên thuật toán Naive Bayes........................................36\n4.2.2. Phân lớp dựa trên thuật toán K - Nearest Neighbor (KNN).............38\n4.2.3. Phân lớp dựa vào thuật toán cây quyết định.....................................39\n4.2.4. Phân lớp sử dụng Support Vector Machines (SVM)........................41\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM ..............................................43\n5.1. Tập dữ liệu và tiền xử lý.......................................................................43\n5.2. Công cụ và phương pháp phân lớp .......................................................44\n5.3. Kết quả thực nghiệm.............................................................................45"
+        },
+        {
+          "id": "6f27529d88ed:p47:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 47,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số"
+        },
+        {
+          "id": "6f27529d88ed:p52:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 52,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 100 văn bản. Trong đó: Traning set: 64, Test set: 32.\nCũng giống như với bộ dữ liệu gồm 50 văn bản, chúng tôi nhận thấy rằng trong\nbộ dữ liệu này, k = 2 cho ta kết quả phân lớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả ra như sau:\nCorrectly Classified Instanse: 23 71.875%\nInCorrectly Classified Instances: 9 28.125%\n----------------------\nPrecision Recall F1 Class\n1 0.438 0.609 rec.autos_50\n0.64 1 0.780 rec.Sport_50\n----------------------\na b <---classified as\n7 9 | a = rec.autos_50\n0 16 | b = rec.sport_50\n48"
+        },
+        {
+          "id": "6f27529d88ed:p54:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 54,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả như sau:\nCorrectly Classified Instanse: 131 78.916%\nInCorrectly Classified Instances: 35 24.084%\n----------------------\nPrecision Recall F1 Class\n0.929 0.627 0.748 rec.autos_250\n0.718 0.952 0.818 rec.Sport_250\n----------------------\na b <---classified as\n52 31 | a = rec.autos_250\n4 79 | b = rec.sport_250\n Biểu diễn văn bản bằng tập các khái niệm mờ:\n50"
+        }
+      ],
+      "events": [
+        {
+          "event": "search",
+          "query": "k-means phân lớp 20newsgroup kết quả",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p50:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 50 văn bản. Trong đó: Traning set: 34, Test set: 16.\nSau khi thử với một số giá trị của tham số k, chúng tôi thấy k = 2, có kết quả phân\nlớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả output như sau:\nCorrectly Classified Instanse: 10 62.5%\nInCorrectly Classified Instances: 6 37.5%\n----------------------\nPrecision Recall F1 Class\n1 0.25 0.4 rec.autos_25\n0.571 1 0.72 rec.Sport_25\n----------------------\na b <---classified as\n2 6 | a = rec.autos_25\n0 8 | b = rec.sport_25\n46",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 50,
+              "metadata": {
+                "chunk_index": 100,
+                "page_chunk": 1
+              },
+              "score": 0.030679156908665108,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030679156908665108
+            },
+            {
+              "id": "6f27529d88ed:p42:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nvới tập huấn luyện, có thể sử dụng kết hợp nhiều tập huấn luyện khác nhau. Thông\nthường, người ta còn đặt thêm một ngưỡng tối ưu để cho kết quả phân lớp khả quan.\n4.2.2. Phân lớp dựa trên thuật toán K - Nearest Neighbor (KNN)\nThuật toán phân lớp KNN [4] là một phương pháp truyền thống và khá nổi tiếng\ntrong hướng tiếp cận dựa trên thống kê, đã được nghiên cứu trong nhận dạng mẫu trong\nvài thập kỷ gần đây.\nNó được đánh giá là một trong những phương pháp tốt nhất và được sử dụng\nngay từ những thời kỳ đầu của phân lớp văn bản .\nMuốn phân lớp một văn bản mới, thuật toán KNN sẽ tính khoảng cách (Euclide,\nCosine …) của văn bản này đến các văn bản trong tập huấn luyện và chọn ra k văn bản có\nkhoảng cách gần nhất, còn gọi là k “láng giềng”. Dùng các khoảng cách vừa tính được\nđánh trọng số cho các chủ đề đã có. Trọng số của một chủ đề sẽ được tính bằng tổng các\nkhoảng cánh từ văn bản cần phân lớp đến các văn bản trong k láng giềng mà có cùng chủ\nđề đó. Những chủ đề không xuất hiện trong tập k văn bản sẽ có trọng số bằng 0. Các chủ",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 42,
+              "metadata": {
+                "chunk_index": 85,
+                "page_chunk": 1
+              },
+              "score": 0.030621785881252923,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030621785881252923
+            },
+            {
+              "id": "6f27529d88ed:p5:c3",
+              "text": "a trên các khái niêm mờ.\nChúng tôi áp dụng thuật toán KNN (k – người láng giềng gần nhất) và phần mềm\nWEKA (K-người láng giếng gần nhất) để tiến hành phân lớp. Phần thực nghiệm cho thấy\nrằng phương pháp biểu diễn văn bản dựa khái niệm mờ có kết quả phân lớp tốt hơn so với\nphương pháp biểu diễn văn bản theo vector từ khóa.\nNgoài phần mở đầu và kết luận, nội dung của luận văn được trình bày trong 5\nchương:\n1",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 5,
+              "metadata": {
+                "page_chunk": 3,
+                "chunk_index": 11
+              },
+              "score": 0.03057889822595705,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03057889822595705
+            },
+            {
+              "id": "6f27529d88ed:p4:c2",
+              "text": "ất giải pháp cho vấn đề đồng nghĩa.........................................32\nChương 4. CÁC PHƯƠNG PHÁP PHÂN LỚP VĂN BẢN................................35\n4.1. Tổng quan về bài toán phân lớp............................................................35\n4.2. Các thuật toán phân lớp ........................................................................36\n4.2.1. Phân lớp dựa trên thuật toán Naive Bayes........................................36\n4.2.2. Phân lớp dựa trên thuật toán K - Nearest Neighbor (KNN).............38\n4.2.3. Phân lớp dựa vào thuật toán cây quyết định.....................................39\n4.2.4. Phân lớp sử dụng Support Vector Machines (SVM)........................41\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM ..............................................43\n5.1. Tập dữ liệu và tiền xử lý.......................................................................43\n5.2. Công cụ và phương pháp phân lớp .......................................................44\n5.3. Kết quả thực nghiệm.............................................................................45",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 4,
+              "metadata": {
+                "chunk_index": 7,
+                "page_chunk": 2
+              },
+              "score": 0.03009207275993712,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03009207275993712
+            },
+            {
+              "id": "6f27529d88ed:p47:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 47,
+              "metadata": {
+                "chunk_index": 94,
+                "page_chunk": 1
+              },
+              "score": 0.029957522915269395,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.029957522915269395
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p50:c1",
+            "6f27529d88ed:p42:c1",
+            "6f27529d88ed:p5:c3",
+            "6f27529d88ed:p4:c2",
+            "6f27529d88ed:p47:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p50:c1",
+            "6f27529d88ed:p42:c1",
+            "6f27529d88ed:p5:c3",
+            "6f27529d88ed:p4:c2",
+            "6f27529d88ed:p47:c1"
+          ],
+          "context_chars": 4586
+        },
+        {
+          "event": "search",
+          "query": "20newsgroup clustering accuracy",
+          "method": "dense",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p50:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 50 văn bản. Trong đó: Traning set: 34, Test set: 16.\nSau khi thử với một số giá trị của tham số k, chúng tôi thấy k = 2, có kết quả phân\nlớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả output như sau:\nCorrectly Classified Instanse: 10 62.5%\nInCorrectly Classified Instances: 6 37.5%\n----------------------\nPrecision Recall F1 Class\n1 0.25 0.4 rec.autos_25\n0.571 1 0.72 rec.Sport_25\n----------------------\na b <---classified as\n2 6 | a = rec.autos_25\n0 8 | b = rec.sport_25\n46",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 50,
+              "metadata": {
+                "chunk_index": 100,
+                "page_chunk": 1
+              },
+              "score": 0.6405907273292542,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p52:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 100 văn bản. Trong đó: Traning set: 64, Test set: 32.\nCũng giống như với bộ dữ liệu gồm 50 văn bản, chúng tôi nhận thấy rằng trong\nbộ dữ liệu này, k = 2 cho ta kết quả phân lớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả ra như sau:\nCorrectly Classified Instanse: 23 71.875%\nInCorrectly Classified Instances: 9 28.125%\n----------------------\nPrecision Recall F1 Class\n1 0.438 0.609 rec.autos_50\n0.64 1 0.780 rec.Sport_50\n----------------------\na b <---classified as\n7 9 | a = rec.autos_50\n0 16 | b = rec.sport_50\n48",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 52,
+              "metadata": {
+                "chunk_index": 102,
+                "page_chunk": 1
+              },
+              "score": 0.6344592571258545,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p54:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả như sau:\nCorrectly Classified Instanse: 131 78.916%\nInCorrectly Classified Instances: 35 24.084%\n----------------------\nPrecision Recall F1 Class\n0.929 0.627 0.748 rec.autos_250\n0.718 0.952 0.818 rec.Sport_250\n----------------------\na b <---classified as\n52 31 | a = rec.autos_250\n4 79 | b = rec.sport_250\n Biểu diễn văn bản bằng tập các khái niệm mờ:\n50",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 54,
+              "metadata": {
+                "chunk_index": 104,
+                "page_chunk": 1
+              },
+              "score": 0.6292932033538818,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p47:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 47,
+              "metadata": {
+                "chunk_index": 94,
+                "page_chunk": 1
+              },
+              "score": 0.6284307241439819,
+              "method": "dense"
+            },
+            {
+              "id": "6f27529d88ed:p53:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Biểu diễn văn bản bằng các khái niệm mờ:\nKết quả ra như sau:\nCorrectly Classified Instanse: 27 84.375%\nInCorrectly Classified Instances: 5 15.625%\n----------------------\nPrecision Recall F1 Class\n1 0.688 0.815 rec.autos_50\n0.762 1 0.865 rec.Sport_50\n----------------------\na b <---classified as\n11 5 | a = rec.autos_50\n0 16 | b = rec.sport_50\n Khi phân lớp với bộ dữ liệu 500 văn bản. Trong đó: Traning set: 334, Test\nset: 166. Không giống với hai trường hợp trên, trong trường hợp này, k = 8 sẽ cho\nkết quả phân lớp tốt nhất.\n49",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 53,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 103
+              },
+              "score": 0.6151669025421143,
+              "method": "dense"
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p50:c1",
+            "6f27529d88ed:p42:c1",
+            "6f27529d88ed:p5:c3",
+            "6f27529d88ed:p4:c2",
+            "6f27529d88ed:p47:c1",
+            "6f27529d88ed:p52:c1",
+            "6f27529d88ed:p54:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p52:c1",
+            "6f27529d88ed:p54:c1"
+          ],
+          "context_chars": 5788
+        },
+        {
+          "event": "search",
+          "query": "k-means phân cụm 20newsgroup thực nghiệm",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p47:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 47,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 94
+              },
+              "score": 0.03278688524590164,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "6f27529d88ed:p5:c3",
+              "text": "a trên các khái niêm mờ.\nChúng tôi áp dụng thuật toán KNN (k – người láng giềng gần nhất) và phần mềm\nWEKA (K-người láng giếng gần nhất) để tiến hành phân lớp. Phần thực nghiệm cho thấy\nrằng phương pháp biểu diễn văn bản dựa khái niệm mờ có kết quả phân lớp tốt hơn so với\nphương pháp biểu diễn văn bản theo vector từ khóa.\nNgoài phần mở đầu và kết luận, nội dung của luận văn được trình bày trong 5\nchương:\n1",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 5,
+              "metadata": {
+                "chunk_index": 11,
+                "page_chunk": 3
+              },
+              "score": 0.030017921146953404,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030017921146953404
+            },
+            {
+              "id": "6f27529d88ed:p49:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Chương trình chuyển từ biểu diễn theo từ khóa và theo khái niệm mờ sang dữ\nliệu chuẩn của weka được viết bằng ngôn ngữ Java. Tập văn bản trước đó đã\nđược biểu diễn theo vector trọng số các từ khóa trở thành Input. Sau đó, tiến\nhành chạy chương trình và cho ra output là file dữ liệu chuẩn của weka.\n Phương pháp phân lớp :\nTrong chương 4, khóa luận đã trình bày về một số thuật toán phân lớp. Qua phân\ntích, chúng tôi nhận thấy rằng: phương pháp K - Nearest Neighbor là một phương pháp\nđơn giản và được đánh giá là một trong những phương pháp tốt và cho hiệu quả cao. Vì\nvậy, chúng tôi chọn thuật toán K - Nearest Neighbor trong thực nghiệm này\n5.3. Kết quả thực nghiệm\n Có hai đại lượng thường dùng để đo hiệu suất của phân lớp văn bản, đó là\nprecision (độ chính xác) và recall (độ hồi tưởng). Ngoài ra người ta còn xác định\nthêm thông số F1. F1 là một chỉ số cân bằng giữa độ chính xác và độ hồi tưởng,\nF1 sẽ lớn khi độ chính xác và độ hồi tưởng lớn và cân bằng, F1 sẽ nhỏ khi độ\nchính xác và độ hồi tưởng nhỏ hoặc không cân bằng.",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 49,
+              "metadata": {
+                "chunk_index": 98,
+                "page_chunk": 1
+              },
+              "score": 0.029211087420042643,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.029211087420042643
+            },
+            {
+              "id": "6f27529d88ed:p4:c2",
+              "text": "ất giải pháp cho vấn đề đồng nghĩa.........................................32\nChương 4. CÁC PHƯƠNG PHÁP PHÂN LỚP VĂN BẢN................................35\n4.1. Tổng quan về bài toán phân lớp............................................................35\n4.2. Các thuật toán phân lớp ........................................................................36\n4.2.1. Phân lớp dựa trên thuật toán Naive Bayes........................................36\n4.2.2. Phân lớp dựa trên thuật toán K - Nearest Neighbor (KNN).............38\n4.2.3. Phân lớp dựa vào thuật toán cây quyết định.....................................39\n4.2.4. Phân lớp sử dụng Support Vector Machines (SVM)........................41\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM ..............................................43\n5.1. Tập dữ liệu và tiền xử lý.......................................................................43\n5.2. Công cụ và phương pháp phân lớp .......................................................44\n5.3. Kết quả thực nghiệm.............................................................................45",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 4,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 7
+              },
+              "score": 0.028693528693528692,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.028693528693528692
+            },
+            {
+              "id": "6f27529d88ed:p50:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n Khi phân lớp với bộ dữ liệu 50 văn bản. Trong đó: Traning set: 34, Test set: 16.\nSau khi thử với một số giá trị của tham số k, chúng tôi thấy k = 2, có kết quả phân\nlớp cao nhất.\n Biểu diễn văn bản bằng tập từ khóa:\nKết quả output như sau:\nCorrectly Classified Instanse: 10 62.5%\nInCorrectly Classified Instances: 6 37.5%\n----------------------\nPrecision Recall F1 Class\n1 0.25 0.4 rec.autos_25\n0.571 1 0.72 rec.Sport_25\n----------------------\na b <---classified as\n2 6 | a = rec.autos_25\n0 8 | b = rec.sport_25\n46",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 50,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 100
+              },
+              "score": 0.028629032258064516,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.028629032258064516
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p50:c1",
+            "6f27529d88ed:p42:c1",
+            "6f27529d88ed:p5:c3",
+            "6f27529d88ed:p4:c2",
+            "6f27529d88ed:p47:c1",
+            "6f27529d88ed:p52:c1",
+            "6f27529d88ed:p54:c1"
+          ],
+          "added_context_ids": [],
+          "context_chars": 5788
+        },
+        {
+          "event": "search_limit",
+          "tool_call_id": "call_4f78e7be6a0f4d359f1c97b6"
+        },
+        {
+          "event": "abstain",
+          "citation_ids": [],
+          "citation_ids_in_context": false,
+          "validation_error": "model_abstained",
+          "invalid_citation_ids": []
+        }
+      ],
+      "elapsed_ms": 33864.8,
+      "split": "test",
+      "answerable": false
+    },
+    {
+      "query_id": "test-07",
+      "question": "Embedding model trong khóa luận có bao nhiêu chiều vector?",
+      "status": "abstain",
+      "answer": "Tài liệu hiện có không cung cấp đủ bằng chứng để trả lời câu hỏi này.",
+      "model_answer": "Tài liệu không cung cấp đủ bằng chứng về một \"embedding model\" cụ thể với số chiều vector cố định.\n\nNếu bạn đang hỏi về **mô hình không gian vector (Vector Space Model)** được đề cập trong khóa luận, thì chiều của mỗi vector được xác định bằng số lượng các từ khác nhau trong tập hợp văn bản, ví dụ từ 10³ đến 10⁵ trong tập hợp các văn bản nhỏ, và nhiều hơn trong tập hợp văn bản lớn [6f27529d88ed:p24:c1] (K47_Nguyen_Viet_Cuong_Thesis.pdf, trang 24).",
+      "citation_validation_error": "model_abstained",
+      "citations": [],
+      "model": "qwen/qwen3.8-flash",
+      "search_count": 3,
+      "context_ids": [
+        "6f27529d88ed:p19:c2",
+        "6f27529d88ed:p20:c1",
+        "6f27529d88ed:p38:c1",
+        "6f27529d88ed:p33:c2",
+        "6f27529d88ed:p24:c1",
+        "6f27529d88ed:p23:c1"
+      ],
+      "context": [
+        {
+          "id": "6f27529d88ed:p19:c2",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 19,
+          "text": "ất lượng của hệ thống theo phương pháp này hoàn toàn phụ thuộc vào chất\nlượng của hệ thống phân tích cú pháp và đoán nhận nội dung tài liệu. Trên thực tế, việc\nxây dựng hệ thống này là rất phức tạp, phụ thuộc vào đặc điểm của từng ngôn ngữ và đa\nsố vẫn chưa đạt đến độ chính xác cao.\n2.4. Mô hình không gian vector\nCách biểu diễn văn bản thông dụng nhất là thông qua vector biểu diễn theo mô\nhình không gian vector (Vector Space Model). Đây là một cách biểu diễn tương đối đơn\ngiản và hiệu quả.\nTheo mô hình này, mỗi văn bản được biểu diễn thành một vector. Mỗi thành phần\ncủa vector là một từ khóa riêng biệt trong tập văn bản gốc và được gán một giá trị là hàm\nf chỉ mật độ xuất hiện của từ khóa trong văn bản.\n15"
+        },
+        {
+          "id": "6f27529d88ed:p20:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 20,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nHình 3: Biểu diễn các vector văn bản trong không gian 2 chiều\nGiả sử ta có một văn bản và nó được biểu diễn bởi vector V(v1,v2, …, vn). Trong\nđó, vi là số lần xuất hiện của từ khóa thứ i trong văn bản. Ta xét 2 văn bản sau:\nVB1: Life is not only life\nVB2: To life is to fight\nSau khi qua bước tiền xử lý văn bản, ta biểu diễn chúng như sau:\nTrong các cơ sở dữ liệu văn bản, mô hình vector là mô hình biểu diễn văn bản\nđược sử dụng phổ biến nhất hiện nay. Mối quan hệ giữa các trang văn bản được thực hiện\nthông qua việc tính toán trên các vector biểu diễn vì vậy được thi hành khá hiệu quả. Đặc\nbiệt, nhiều công trình nghiên cứu về mối quan hệ \"tương tự nhau\" giữa các trang web\n(một trong những quan hệ điển hình nhất giữa các trang web) dựa trên mô hình biểu diễn\nvector .\n16"
+        },
+        {
+          "id": "6f27529d88ed:p38:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 38,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ndụng hàm tích hợp mờ, ta tích hợp chúng lại trong một khái niệm chung. Việc xử lý văn\nbản thay vì việc tính toán trên các từ khóa, sẽ tính toán trên một khái niệm này. Làm như\nvậy, ta sẽ giảm bớt được số chiều của vector biểu diễn, giảm sự phức tạp trong tính toán\nvà tránh gây nên sự khó hiểu cho người sử dụng khi bắt gặp các từ đồng nghĩa trong văn\nbản.\n34"
+        },
+        {
+          "id": "6f27529d88ed:p33:c2",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 33,
+          "text": "bản được biểu diễn bằng một vector và mỗi thành phần của vector là một từ\nkhóa. Ở chương II, khóa luận đã nêu ra một số nhược điểm của phương pháp này: gây tốn\nkém, phức tạp trong việc lưu trữ, chiều của mỗi vector là rất lớn khi văn bản có nhiều từ\nkhóa … Trong phần này, chúng tôi xin trình bày một phương pháp biểu diễn văn bản mà\nphần nào khắc phục được nhược điểm nêu trên, đó là phương pháp biểu diễn văn bản sử\ndụng các khái niệm mờ.\n29"
+        },
+        {
+          "id": "6f27529d88ed:p24:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 24,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nViệc tìm kiếm tiến hành chậm khi hệ thống các từ vựng là lớn do phải tính toán\ntrên toàn bộ các vector của tài liệu.\nKhi biểu diễn các vector với các hệ số là số tự nhiên sẽ làm tăng mức độ chính\nxác của việc tìm kiếm nhưng làm tốc độ tính toán giảm đi rẩt nhiều do các phép nhân\nvector phải tiến hành trên các số tự nhiên hoặc số thực, hơn nữa việc lưu trữ các vector sẽ\ntốn kém và phức tạp.\nHệ thống không linh hoạt khi lưu trữ các từ khóa. Chỉ cần một thay đổi rất nhỏ\ntrong bảng từ vựng sẽ kéo theo hoặc là vector hoá lại toàn bộ các tài liệu lưu trữ, hoặc là\nsẽ bỏ qua các từ có nghĩa bổ sung trong các tài liệu được mã hóa trước đó.\nMột nhược điểm nữa, chiều của mỗi Vector theo cách biểu diễn này là rất lớn, bởi\nvì chiều của nó được xác định bằng số lượng các từ khác nhau trong tập hợp văn bản. Ví\ndụ số lượng các từ có thể có từ 103 đến 105 trong tập hợp các văn bản nhỏ, còn trong tập\nhợp các văn bản lớn thì số lượng sẽ nhiều hơn, đặc biệt trong môi trường Web.\n2.5. Biểu diễn văn bản trong máy tìm kiếm\n2.5.1. Giới thiệu về máy tìm kiếm"
+        },
+        {
+          "id": "6f27529d88ed:p23:c1",
+          "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+          "page": 23,
+          "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n⎧ ⎛ m ⎞\nnÕu f ij ≥ 1 [1 + log(f ij )] log ⎜⎜ ⎟⎟ w ij = ⎪⎨ ⎝ h i ⎠\n⎪⎩0 nÕu ng−îc l¹i\nĐây là phương pháp kết hợp được ưu điểm của cả hai phương pháp trên. Trọng số\nwij được tính bằng tần số xuất hiện của từ khóa ti trong văn bản dj và độ hiếm của từ khóa\nti trong toàn bộ cơ sở dữ liệu.\nCách tìm kiếm:\nCác câu hỏi đưa vào sẽ được ánh xạ vector Q(q1,q2,…,qm) theo hệ số của các từ\nvựng trong nó là khác nhau. Tức là: Khi từ vựng càng có ý nghĩa với nội dung cần tìm thì\nnó có hệ số càng lớn.\nqi = 0 khi từ vựng đó không thuộc danh sách những từ cần tìm.\nqi <> 0 khi từ vựng đó thuộc danh sách các từ cần tìm.\nKhi đó, cho một hệ thống các từ vựng ta sẽ xác định được các vector tương ứng\nvới từng tài liệu và ứng với mỗi câu hỏi đưa vào ta sẽ có một vector tương với nó cùng\nnhững hệ số đã được xác định từ trước. Việc tìm kiếm và quản lý sẽ được thực hiện trên\ntài liệu này.\n Một số ưu, nhược điểm của phương pháp biểu diễn này:\n Ưu điểm:\nCác tài liệu trả lại có thể được sắp xếp theo mức độ liên quan đến nội dung yêu"
+        }
+      ],
+      "events": [
+        {
+          "event": "search",
+          "query": "embedding model số chiều vector",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p19:c2",
+              "text": "ất lượng của hệ thống theo phương pháp này hoàn toàn phụ thuộc vào chất\nlượng của hệ thống phân tích cú pháp và đoán nhận nội dung tài liệu. Trên thực tế, việc\nxây dựng hệ thống này là rất phức tạp, phụ thuộc vào đặc điểm của từng ngôn ngữ và đa\nsố vẫn chưa đạt đến độ chính xác cao.\n2.4. Mô hình không gian vector\nCách biểu diễn văn bản thông dụng nhất là thông qua vector biểu diễn theo mô\nhình không gian vector (Vector Space Model). Đây là một cách biểu diễn tương đối đơn\ngiản và hiệu quả.\nTheo mô hình này, mỗi văn bản được biểu diễn thành một vector. Mỗi thành phần\ncủa vector là một từ khóa riêng biệt trong tập văn bản gốc và được gán một giá trị là hàm\nf chỉ mật độ xuất hiện của từ khóa trong văn bản.\n15",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 19,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 42
+              },
+              "score": 0.032266458495966696,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.032266458495966696
+            },
+            {
+              "id": "6f27529d88ed:p20:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nHình 3: Biểu diễn các vector văn bản trong không gian 2 chiều\nGiả sử ta có một văn bản và nó được biểu diễn bởi vector V(v1,v2, …, vn). Trong\nđó, vi là số lần xuất hiện của từ khóa thứ i trong văn bản. Ta xét 2 văn bản sau:\nVB1: Life is not only life\nVB2: To life is to fight\nSau khi qua bước tiền xử lý văn bản, ta biểu diễn chúng như sau:\nTrong các cơ sở dữ liệu văn bản, mô hình vector là mô hình biểu diễn văn bản\nđược sử dụng phổ biến nhất hiện nay. Mối quan hệ giữa các trang văn bản được thực hiện\nthông qua việc tính toán trên các vector biểu diễn vì vậy được thi hành khá hiệu quả. Đặc\nbiệt, nhiều công trình nghiên cứu về mối quan hệ \"tương tự nhau\" giữa các trang web\n(một trong những quan hệ điển hình nhất giữa các trang web) dựa trên mô hình biểu diễn\nvector .\n16",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 20,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 43
+              },
+              "score": 0.032018442622950824,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.032018442622950824
+            },
+            {
+              "id": "6f27529d88ed:p38:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ndụng hàm tích hợp mờ, ta tích hợp chúng lại trong một khái niệm chung. Việc xử lý văn\nbản thay vì việc tính toán trên các từ khóa, sẽ tính toán trên một khái niệm này. Làm như\nvậy, ta sẽ giảm bớt được số chiều của vector biểu diễn, giảm sự phức tạp trong tính toán\nvà tránh gây nên sự khó hiểu cho người sử dụng khi bắt gặp các từ đồng nghĩa trong văn\nbản.\n34",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 38,
+              "metadata": {
+                "chunk_index": 78,
+                "page_chunk": 1
+              },
+              "score": 0.0315136476426799,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.0315136476426799
+            },
+            {
+              "id": "6f27529d88ed:p33:c2",
+              "text": "bản được biểu diễn bằng một vector và mỗi thành phần của vector là một từ\nkhóa. Ở chương II, khóa luận đã nêu ra một số nhược điểm của phương pháp này: gây tốn\nkém, phức tạp trong việc lưu trữ, chiều của mỗi vector là rất lớn khi văn bản có nhiều từ\nkhóa … Trong phần này, chúng tôi xin trình bày một phương pháp biểu diễn văn bản mà\nphần nào khắc phục được nhược điểm nêu trên, đó là phương pháp biểu diễn văn bản sử\ndụng các khái niệm mờ.\n29",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 33,
+              "metadata": {
+                "chunk_index": 69,
+                "page_chunk": 2
+              },
+              "score": 0.03149801587301587,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03149801587301587
+            },
+            {
+              "id": "6f27529d88ed:p24:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nViệc tìm kiếm tiến hành chậm khi hệ thống các từ vựng là lớn do phải tính toán\ntrên toàn bộ các vector của tài liệu.\nKhi biểu diễn các vector với các hệ số là số tự nhiên sẽ làm tăng mức độ chính\nxác của việc tìm kiếm nhưng làm tốc độ tính toán giảm đi rẩt nhiều do các phép nhân\nvector phải tiến hành trên các số tự nhiên hoặc số thực, hơn nữa việc lưu trữ các vector sẽ\ntốn kém và phức tạp.\nHệ thống không linh hoạt khi lưu trữ các từ khóa. Chỉ cần một thay đổi rất nhỏ\ntrong bảng từ vựng sẽ kéo theo hoặc là vector hoá lại toàn bộ các tài liệu lưu trữ, hoặc là\nsẽ bỏ qua các từ có nghĩa bổ sung trong các tài liệu được mã hóa trước đó.\nMột nhược điểm nữa, chiều của mỗi Vector theo cách biểu diễn này là rất lớn, bởi\nvì chiều của nó được xác định bằng số lượng các từ khác nhau trong tập hợp văn bản. Ví\ndụ số lượng các từ có thể có từ 103 đến 105 trong tập hợp các văn bản nhỏ, còn trong tập\nhợp các văn bản lớn thì số lượng sẽ nhiều hơn, đặc biệt trong môi trường Web.\n2.5. Biểu diễn văn bản trong máy tìm kiếm\n2.5.1. Giới thiệu về máy tìm kiếm",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 24,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 50
+              },
+              "score": 0.030834914611005692,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030834914611005692
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p19:c2",
+            "6f27529d88ed:p20:c1",
+            "6f27529d88ed:p38:c1",
+            "6f27529d88ed:p33:c2",
+            "6f27529d88ed:p24:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p19:c2",
+            "6f27529d88ed:p20:c1",
+            "6f27529d88ed:p38:c1",
+            "6f27529d88ed:p33:c2",
+            "6f27529d88ed:p24:c1"
+          ],
+          "context_chars": 3875
+        },
+        {
+          "event": "search",
+          "query": "kích thước vector embedding dimension",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p20:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nHình 3: Biểu diễn các vector văn bản trong không gian 2 chiều\nGiả sử ta có một văn bản và nó được biểu diễn bởi vector V(v1,v2, …, vn). Trong\nđó, vi là số lần xuất hiện của từ khóa thứ i trong văn bản. Ta xét 2 văn bản sau:\nVB1: Life is not only life\nVB2: To life is to fight\nSau khi qua bước tiền xử lý văn bản, ta biểu diễn chúng như sau:\nTrong các cơ sở dữ liệu văn bản, mô hình vector là mô hình biểu diễn văn bản\nđược sử dụng phổ biến nhất hiện nay. Mối quan hệ giữa các trang văn bản được thực hiện\nthông qua việc tính toán trên các vector biểu diễn vì vậy được thi hành khá hiệu quả. Đặc\nbiệt, nhiều công trình nghiên cứu về mối quan hệ \"tương tự nhau\" giữa các trang web\n(một trong những quan hệ điển hình nhất giữa các trang web) dựa trên mô hình biểu diễn\nvector .\n16",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 20,
+              "metadata": {
+                "chunk_index": 43,
+                "page_chunk": 1
+              },
+              "score": 0.031544957774465976,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031544957774465976
+            },
+            {
+              "id": "6f27529d88ed:p24:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nViệc tìm kiếm tiến hành chậm khi hệ thống các từ vựng là lớn do phải tính toán\ntrên toàn bộ các vector của tài liệu.\nKhi biểu diễn các vector với các hệ số là số tự nhiên sẽ làm tăng mức độ chính\nxác của việc tìm kiếm nhưng làm tốc độ tính toán giảm đi rẩt nhiều do các phép nhân\nvector phải tiến hành trên các số tự nhiên hoặc số thực, hơn nữa việc lưu trữ các vector sẽ\ntốn kém và phức tạp.\nHệ thống không linh hoạt khi lưu trữ các từ khóa. Chỉ cần một thay đổi rất nhỏ\ntrong bảng từ vựng sẽ kéo theo hoặc là vector hoá lại toàn bộ các tài liệu lưu trữ, hoặc là\nsẽ bỏ qua các từ có nghĩa bổ sung trong các tài liệu được mã hóa trước đó.\nMột nhược điểm nữa, chiều của mỗi Vector theo cách biểu diễn này là rất lớn, bởi\nvì chiều của nó được xác định bằng số lượng các từ khác nhau trong tập hợp văn bản. Ví\ndụ số lượng các từ có thể có từ 103 đến 105 trong tập hợp các văn bản nhỏ, còn trong tập\nhợp các văn bản lớn thì số lượng sẽ nhiều hơn, đặc biệt trong môi trường Web.\n2.5. Biểu diễn văn bản trong máy tìm kiếm\n2.5.1. Giới thiệu về máy tìm kiếm",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 24,
+              "metadata": {
+                "chunk_index": 50,
+                "page_chunk": 1
+              },
+              "score": 0.03149801587301587,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03149801587301587
+            },
+            {
+              "id": "6f27529d88ed:p33:c2",
+              "text": "bản được biểu diễn bằng một vector và mỗi thành phần của vector là một từ\nkhóa. Ở chương II, khóa luận đã nêu ra một số nhược điểm của phương pháp này: gây tốn\nkém, phức tạp trong việc lưu trữ, chiều của mỗi vector là rất lớn khi văn bản có nhiều từ\nkhóa … Trong phần này, chúng tôi xin trình bày một phương pháp biểu diễn văn bản mà\nphần nào khắc phục được nhược điểm nêu trên, đó là phương pháp biểu diễn văn bản sử\ndụng các khái niệm mờ.\n29",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 33,
+              "metadata": {
+                "chunk_index": 69,
+                "page_chunk": 2
+              },
+              "score": 0.031009615384615385,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.031009615384615385
+            },
+            {
+              "id": "6f27529d88ed:p19:c2",
+              "text": "ất lượng của hệ thống theo phương pháp này hoàn toàn phụ thuộc vào chất\nlượng của hệ thống phân tích cú pháp và đoán nhận nội dung tài liệu. Trên thực tế, việc\nxây dựng hệ thống này là rất phức tạp, phụ thuộc vào đặc điểm của từng ngôn ngữ và đa\nsố vẫn chưa đạt đến độ chính xác cao.\n2.4. Mô hình không gian vector\nCách biểu diễn văn bản thông dụng nhất là thông qua vector biểu diễn theo mô\nhình không gian vector (Vector Space Model). Đây là một cách biểu diễn tương đối đơn\ngiản và hiệu quả.\nTheo mô hình này, mỗi văn bản được biểu diễn thành một vector. Mỗi thành phần\ncủa vector là một từ khóa riêng biệt trong tập văn bản gốc và được gán một giá trị là hàm\nf chỉ mật độ xuất hiện của từ khóa trong văn bản.\n15",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 19,
+              "metadata": {
+                "page_chunk": 2,
+                "chunk_index": 42
+              },
+              "score": 0.030834914611005692,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030834914611005692
+            },
+            {
+              "id": "6f27529d88ed:p23:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\n⎧ ⎛ m ⎞\nnÕu f ij ≥ 1 [1 + log(f ij )] log ⎜⎜ ⎟⎟ w ij = ⎪⎨ ⎝ h i ⎠\n⎪⎩0 nÕu ng−îc l¹i\nĐây là phương pháp kết hợp được ưu điểm của cả hai phương pháp trên. Trọng số\nwij được tính bằng tần số xuất hiện của từ khóa ti trong văn bản dj và độ hiếm của từ khóa\nti trong toàn bộ cơ sở dữ liệu.\nCách tìm kiếm:\nCác câu hỏi đưa vào sẽ được ánh xạ vector Q(q1,q2,…,qm) theo hệ số của các từ\nvựng trong nó là khác nhau. Tức là: Khi từ vựng càng có ý nghĩa với nội dung cần tìm thì\nnó có hệ số càng lớn.\nqi = 0 khi từ vựng đó không thuộc danh sách những từ cần tìm.\nqi <> 0 khi từ vựng đó thuộc danh sách các từ cần tìm.\nKhi đó, cho một hệ thống các từ vựng ta sẽ xác định được các vector tương ứng\nvới từng tài liệu và ứng với mỗi câu hỏi đưa vào ta sẽ có một vector tương với nó cùng\nnhững hệ số đã được xác định từ trước. Việc tìm kiếm và quản lý sẽ được thực hiện trên\ntài liệu này.\n Một số ưu, nhược điểm của phương pháp biểu diễn này:\n Ưu điểm:\nCác tài liệu trả lại có thể được sắp xếp theo mức độ liên quan đến nội dung yêu",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 23,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 48
+              },
+              "score": 0.030090497737556562,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030090497737556562
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p19:c2",
+            "6f27529d88ed:p20:c1",
+            "6f27529d88ed:p38:c1",
+            "6f27529d88ed:p33:c2",
+            "6f27529d88ed:p24:c1",
+            "6f27529d88ed:p23:c1"
+          ],
+          "added_context_ids": [
+            "6f27529d88ed:p23:c1"
+          ],
+          "context_chars": 5014
+        },
+        {
+          "event": "search",
+          "query": "word embedding số chiều 300 100 50",
+          "method": "hybrid",
+          "top_k": 5,
+          "results": [
+            {
+              "id": "6f27529d88ed:p38:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\ndụng hàm tích hợp mờ, ta tích hợp chúng lại trong một khái niệm chung. Việc xử lý văn\nbản thay vì việc tính toán trên các từ khóa, sẽ tính toán trên một khái niệm này. Làm như\nvậy, ta sẽ giảm bớt được số chiều của vector biểu diễn, giảm sự phức tạp trong tính toán\nvà tránh gây nên sự khó hiểu cho người sử dụng khi bắt gặp các từ đồng nghĩa trong văn\nbản.\n34",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 38,
+              "metadata": {
+                "chunk_index": 78,
+                "page_chunk": 1
+              },
+              "score": 0.0315136476426799,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.0315136476426799
+            },
+            {
+              "id": "6f27529d88ed:p24:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nViệc tìm kiếm tiến hành chậm khi hệ thống các từ vựng là lớn do phải tính toán\ntrên toàn bộ các vector của tài liệu.\nKhi biểu diễn các vector với các hệ số là số tự nhiên sẽ làm tăng mức độ chính\nxác của việc tìm kiếm nhưng làm tốc độ tính toán giảm đi rẩt nhiều do các phép nhân\nvector phải tiến hành trên các số tự nhiên hoặc số thực, hơn nữa việc lưu trữ các vector sẽ\ntốn kém và phức tạp.\nHệ thống không linh hoạt khi lưu trữ các từ khóa. Chỉ cần một thay đổi rất nhỏ\ntrong bảng từ vựng sẽ kéo theo hoặc là vector hoá lại toàn bộ các tài liệu lưu trữ, hoặc là\nsẽ bỏ qua các từ có nghĩa bổ sung trong các tài liệu được mã hóa trước đó.\nMột nhược điểm nữa, chiều của mỗi Vector theo cách biểu diễn này là rất lớn, bởi\nvì chiều của nó được xác định bằng số lượng các từ khác nhau trong tập hợp văn bản. Ví\ndụ số lượng các từ có thể có từ 103 đến 105 trong tập hợp các văn bản nhỏ, còn trong tập\nhợp các văn bản lớn thì số lượng sẽ nhiều hơn, đặc biệt trong môi trường Web.\n2.5. Biểu diễn văn bản trong máy tìm kiếm\n2.5.1. Giới thiệu về máy tìm kiếm",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 24,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 50
+              },
+              "score": 0.03125763125763126,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03125763125763126
+            },
+            {
+              "id": "6f27529d88ed:p47:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nChương 5. MỘT SỐ KẾT QUẢ THỰC NGHIỆM\n5.1. Tập dữ liệu và tiền xử lý\n Mô tả dữ liệu đầu vào\nChúng tôi tiến hành thử nghiệm trên cơ sở dữ liệu là bộ phân lớp chuẩn\n20newsgroup có 19997 tài liệu, phân ra thành 20 lớp. Mỗi lớp có khoảng 1000 tài liệu\nTuy nhiên, do số lượng văn bản của tập dữ liệu này rất lớn, nên chúng tôi chỉ\nchọn ra 2 lớp để thử nghiệm. Đó là các lớp: rec.sport.; rec.autos .\nChúng tôi tiến hành thực nghiệm với số lượng tài liệu trong 2 lớp là: 50, 100, 500\n. Trong đó tỷ lệ giữa tập train và tập test là: 2/1.\n Biểu diễn văn bản qua các từ khóa\nVới tập dữ liệu kiểm tra, trước tiên chúng tôi thực hiện bước tiền xử lý: loại bỏ\ncác từ dừng. Chương trình loại bỏ từ dừng được viết bằng ngôn ngữ C/C++. Sau đó,\nchúng tôi tạo ra tập từ khóa của tập dữ liệu.\nSau khi hoàn thành các bước trên, tiến hành biểu diễn văn bản. Các văn bản sẽ\nđược biểu diễn dưới dạng vector các từ khóa. Định dạng của vector như sau:\nName_VB(id1,TS1; id2,TS2;…idn,TSn), trong đó: Name_VB là tên văn bản, idi là chỉ số",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 47,
+              "metadata": {
+                "page_chunk": 1,
+                "chunk_index": 94
+              },
+              "score": 0.030834914611005692,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.030834914611005692
+            },
+            {
+              "id": "6f27529d88ed:p15:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nDanh sách một số từ dừng trong tiếng Việt: và; hoặc; cũng; là; mỗi; bởi…\n Loại bỏ từ có tần số thấp\nKhi quan sát văn bản, người ta để ý thấy rằng: Có nhiều từ trong tập văn bản gốc\nxuất hiện rất ít lần và chúng sẽ có ảnh hưởng rất ít trong văn bản. Vì vậy vấn đề đặt ra là\ncần loại bỏ những từ có tần xuất nhỏ. Người ta áp dụng phương pháp được đưa ra bởi\nZipf năm 1949: quan sát tần xuất xuất hiện của các từ trong tập văn bản.\nGọi tần số xuất hiện của từ khóa t trong tập hợp X là ft. Xắp xếp tất cả các\ntừ khóa trong tập hợp theo chiều giảm dần của tần số f, và gọi thứ hạng của mỗi từ khóa t\nlà rt. Đinh luật Zipf được phát biểu dưới dạng công thức sau:\nft.rt ≈ K\nTrong đó: K là một hằng số. Nếu N là tổng số từ trong tập văn bản, thì người ta\nN\nthấy rằng K ≈ .\n10\nNhư vậy, tần số xuất hiện và thứ hạng của một từ khóa là hai đại lượng nghịch\nđảo của nhau. Để thấy rõ hơn điều này, người ta đã biểu diễn lại công thức định luật Zipf\ntheo công thức sau:\n11",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 15,
+              "metadata": {
+                "chunk_index": 34,
+                "page_chunk": 1
+              },
+              "score": 0.03036576949620428,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.03036576949620428
+            },
+            {
+              "id": "6f27529d88ed:p20:c1",
+              "text": "Khóa luận tốt nghiệp Nguyễn Việt Cường\nHình 3: Biểu diễn các vector văn bản trong không gian 2 chiều\nGiả sử ta có một văn bản và nó được biểu diễn bởi vector V(v1,v2, …, vn). Trong\nđó, vi là số lần xuất hiện của từ khóa thứ i trong văn bản. Ta xét 2 văn bản sau:\nVB1: Life is not only life\nVB2: To life is to fight\nSau khi qua bước tiền xử lý văn bản, ta biểu diễn chúng như sau:\nTrong các cơ sở dữ liệu văn bản, mô hình vector là mô hình biểu diễn văn bản\nđược sử dụng phổ biến nhất hiện nay. Mối quan hệ giữa các trang văn bản được thực hiện\nthông qua việc tính toán trên các vector biểu diễn vì vậy được thi hành khá hiệu quả. Đặc\nbiệt, nhiều công trình nghiên cứu về mối quan hệ \"tương tự nhau\" giữa các trang web\n(một trong những quan hệ điển hình nhất giữa các trang web) dựa trên mô hình biểu diễn\nvector .\n16",
+              "source_id": "6f27529d88ed",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 20,
+              "metadata": {
+                "chunk_index": 43,
+                "page_chunk": 1
+              },
+              "score": 0.029726775956284153,
+              "method": "hybrid_rrf",
+              "rrf_score": 0.029726775956284153
+            }
+          ],
+          "context_ids": [
+            "6f27529d88ed:p19:c2",
+            "6f27529d88ed:p20:c1",
+            "6f27529d88ed:p38:c1",
+            "6f27529d88ed:p33:c2",
+            "6f27529d88ed:p24:c1",
+            "6f27529d88ed:p23:c1"
+          ],
+          "added_context_ids": [],
+          "context_chars": 5014
+        },
+        {
+          "event": "search_limit",
+          "tool_call_id": "call_657545014cb846ed8fbbd303"
+        },
+        {
+          "event": "abstain",
+          "citation_ids": [],
+          "citation_ids_in_context": false,
+          "validation_error": "model_abstained",
+          "invalid_citation_ids": []
+        }
+      ],
+      "elapsed_ms": 19656.8,
+      "split": "test",
+      "answerable": false
+    }
+  ]
+}

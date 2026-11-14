@@ -1,0 +1,9 @@
+[
+  {"query_id":"test-01","answer_grade":1,"citation_support":[true,true],"review_note":"Có nêu biểu diễn dựa trên khái niệm mờ nhưng tự nhận không đủ để xác định thành phần vector; câu trả lời chưa trực tiếp đáp ứng đối chiếu ‘khái niệm mờ thay vì từ khóa’."},
+  {"query_id":"test-02","answer_grade":2,"citation_support":[true]},
+  {"query_id":"test-03","answer_grade":2,"citation_support":[true]},
+  {"query_id":"test-04","answer_grade":2,"citation_support":[true]},
+  {"query_id":"test-05","answer_grade":0,"citation_support":[]},
+  {"query_id":"test-06","abstention_correct":true,"citation_support":[]},
+  {"query_id":"test-07","abstention_correct":true,"citation_support":[]}
+]

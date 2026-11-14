@@ -1,0 +1,1384 @@
+{
+  "summary": {
+    "split": "dev",
+    "answerable_n": 15,
+    "unanswerable_excluded": 2,
+    "errors": 0,
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "methods": {
+      "dense": {
+        "hit_at_1": {
+          "n": 9,
+          "N": 15,
+          "rate": 0.6
+        },
+        "evidence_hit_at_3": {
+          "n": 15,
+          "N": 15,
+          "rate": 1.0
+        }
+      },
+      "tfidf": {
+        "hit_at_1": {
+          "n": 11,
+          "N": 15,
+          "rate": 0.7333333333333333
+        },
+        "evidence_hit_at_3": {
+          "n": 13,
+          "N": 15,
+          "rate": 0.8666666666666667
+        }
+      },
+      "hybrid_rrf": {
+        "hit_at_1": {
+          "n": 12,
+          "N": 15,
+          "rate": 0.8
+        },
+        "evidence_hit_at_3": {
+          "n": 14,
+          "N": 15,
+          "rate": 0.9333333333333333
+        }
+      }
+    }
+  },
+  "traces": [
+    {
+      "id": "dev-01",
+      "split": "dev",
+      "question": "Phương pháp biểu diễn văn bản mới trong khóa luận dựa trên nền tảng lý thuyết nào?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.6932321190834045,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.6838748455047607,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p6:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 6,
+              "score": 0.659946858882904,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.37441665723583256,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p27:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 27,
+              "score": 0.23495059855528308,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.23488270485055932,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.03278688524590164,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.03200204813108039,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p6:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 6,
+              "score": 0.03149801587301587,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-02",
+      "split": "dev",
+      "question": "Khóa luận áp dụng cách biểu diễn văn bản mới vào bài toán nào?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.7171375751495361,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.6943436861038208,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p6:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 6,
+              "score": 0.6644659042358398,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.4876780766839142,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.3705972728459655,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p6:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 6,
+              "score": 0.36309253857786683,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.03252247488101534,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.03252247488101534,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p6:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 6,
+              "score": 0.031746031746031744,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-03",
+      "split": "dev",
+      "question": "Theo khóa luận, khai phá dữ liệu tìm điều gì trong tập dữ liệu?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p7:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 7,
+              "score": 0.6508113145828247,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p3:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 3,
+              "score": 0.6312181949615479,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p8:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 8,
+              "score": 0.6085346937179565,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p8:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 8,
+              "score": 0.4658088223114798,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p7:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 7,
+              "score": 0.4174195982222026,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p7:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 7,
+              "score": 0.39721409406230684,
+              "hit": true
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p7:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 7,
+              "score": 0.032266458495966696,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p8:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 8,
+              "score": 0.032266458495966696,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p3:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 3,
+              "score": 0.031754032258064516,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-04",
+      "split": "dev",
+      "question": "Bước đầu tiên của quá trình khai phá dữ liệu là gì?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p8:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 8,
+              "score": 0.7122668027877808,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p3:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 3,
+              "score": 0.6589545607566833,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p7:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 7,
+              "score": 0.6261951923370361,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p8:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 8,
+              "score": 0.4418439350653613,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p7:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 7,
+              "score": 0.4392529547892576,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p3:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 3,
+              "score": 0.3617642466757911,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p8:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 8,
+              "score": 0.03278688524590164,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p3:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 3,
+              "score": 0.03200204813108039,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p7:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 7,
+              "score": 0.03200204813108039,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-05",
+      "split": "dev",
+      "question": "Ở dạng đơn giản nhất, người dùng đưa yêu cầu tìm kiếm văn bản dưới dạng gì?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p24:c3",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 24,
+              "score": 0.686460018157959,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p10:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 10,
+              "score": 0.6182710528373718,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p10:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 10,
+              "score": 0.612671971321106,
+              "hit": true
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p10:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 10,
+              "score": 0.3857715876985723,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p10:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 10,
+              "score": 0.375261368082848,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p24:c3",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 24,
+              "score": 0.24273682100923114,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p10:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 10,
+              "score": 0.03252247488101534,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p24:c3",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 24,
+              "score": 0.032266458495966696,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p10:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 10,
+              "score": 0.03200204813108039,
+              "hit": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-06",
+      "split": "dev",
+      "question": "Ngoài nhãn đúng/sai, khóa luận nêu cách nào để biểu diễn quan hệ giữa văn bản và lớp?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.676459789276123,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p12:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 12,
+              "score": 0.6689267158508301,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.657741904258728,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p12:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 12,
+              "score": 0.2697894701246534,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p12:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 12,
+              "score": 0.24219886600567475,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p40:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 40,
+              "score": 0.23997039298885053,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p12:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 12,
+              "score": 0.03252247488101534,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.03149801587301587,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p6:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 6,
+              "score": 0.030330882352941176,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-07",
+      "split": "dev",
+      "question": "Tiền xử lý văn bản nhằm giảm điều gì trong biểu diễn?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p14:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 14,
+              "score": 0.7233035564422607,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p38:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 38,
+              "score": 0.5446888208389282,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p13:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 13,
+              "score": 0.5369232892990112,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p14:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 14,
+              "score": 0.36336676302347704,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.2234158256627621,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p2:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 2,
+              "score": 0.22314599087871245,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p14:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 14,
+              "score": 0.03278688524590164,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p38:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 38,
+              "score": 0.031754032258064516,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p57:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.0315136476426799,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-08",
+      "split": "dev",
+      "question": "Khóa luận gắn việc loại bỏ từ có tần số thấp với định luật nào?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p15:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 15,
+              "score": 0.7619969248771667,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p16:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.5829448103904724,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p22:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 22,
+              "score": 0.5781696438789368,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p15:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 15,
+              "score": 0.36580683683382953,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p16:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.20609291280956582,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p21:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 21,
+              "score": 0.18711724909299002,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p15:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 15,
+              "score": 0.03278688524590164,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p16:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.03225806451612903,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p21:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 21,
+              "score": 0.030309988518943745,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-09",
+      "split": "dev",
+      "question": "Các từ “clusters”, “clustering” và “clustered” được đưa về từ gốc nào?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p16:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.4786550998687744,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p57:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 57,
+              "score": 0.4097508192062378,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "score": 0.40957140922546387,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p16:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.21595272246833863,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p37:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "score": 0.1364430071797101,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p14:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 14,
+              "score": 0.12150758512583684,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p16:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.03278688524590164,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p37:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 37,
+              "score": 0.03128054740957967,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p14:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 14,
+              "score": 0.030158730158730156,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-10",
+      "split": "dev",
+      "question": "Trong ví dụ về index văn bản, thông tin vị trí nào được lưu cho mỗi từ khóa?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p16:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.6568416357040405,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p17:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 17,
+              "score": 0.6345404982566833,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.6310601830482483,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p16:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.36630884065058145,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.32341554476982204,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p17:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 17,
+              "score": 0.24870697896308483,
+              "hit": true
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p16:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.03278688524590164,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p17:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 17,
+              "score": 0.03200204813108039,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.03200204813108039,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-11",
+      "split": "dev",
+      "question": "Trong vector văn bản ở ví dụ chương 2, thành phần vi biểu thị gì?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p20:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 20,
+              "score": 0.6176784038543701,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p33:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 33,
+              "score": 0.5596379041671753,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p36:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 36,
+              "score": 0.5540635585784912,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": false,
+          "results": [
+            {
+              "id": "6f27529d88ed:p33:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 33,
+              "score": 0.2666880849229682,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p14:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 14,
+              "score": 0.20535565285589247,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.19846175997563045,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p33:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 33,
+              "score": 0.03252247488101534,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p20:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 20,
+              "score": 0.031544957774465976,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p19:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 19,
+              "score": 0.031009615384615385,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-12",
+      "split": "dev",
+      "question": "Theo mô hình Boolean, khi nào từ khóa được gán giá trị đúng cho một văn bản?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p21:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 21,
+              "score": 0.7317239046096802,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p3:c3",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 3,
+              "score": 0.6380798816680908,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p16:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.5725486278533936,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p21:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 21,
+              "score": 0.4349101521622034,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.2940164680313511,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p19:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 19,
+              "score": 0.24720510723158595,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p21:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 21,
+              "score": 0.03278688524590164,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p16:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 16,
+              "score": 0.03149801587301587,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.031054405392392875,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-13",
+      "split": "dev",
+      "question": "Index ngược giúp hệ thống tìm nhanh những văn bản nào từ một từ khóa truy vấn?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p26:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 26,
+              "score": 0.738601803779602,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.7059048414230347,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p26:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 26,
+              "score": 0.6715746521949768,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.3468407543663993,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p26:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 26,
+              "score": 0.3129549452045109,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p26:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 26,
+              "score": 0.3085876311538604,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p25:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 25,
+              "score": 0.03252247488101534,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p26:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 26,
+              "score": 0.032266458495966696,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p26:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 26,
+              "score": 0.03200204813108039,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-14",
+      "split": "dev",
+      "question": "Hàm thuộc của tập mờ nhận giá trị trong khoảng nào?",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p28:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 28,
+              "score": 0.6658065915107727,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p29:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 29,
+              "score": 0.6439111232757568,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p27:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 27,
+              "score": 0.6193545460700989,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": false,
+          "results": [
+            {
+              "id": "6f27529d88ed:p44:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 44,
+              "score": 0.2617188764815048,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p27:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 27,
+              "score": 0.2265083848133124,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p27:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 27,
+              "score": 0.22528717336148113,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": false,
+          "results": [
+            {
+              "id": "6f27529d88ed:p27:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 27,
+              "score": 0.03200204813108039,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p29:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 29,
+              "score": 0.03128054740957967,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p30:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 30,
+              "score": 0.030776515151515152,
+              "hit": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dev-15",
+      "split": "dev",
+      "question": "Nêu một ví dụ từ khóa trong khái niệm “bệnh viện” của khóa luận.",
+      "status": "ok",
+      "methods": {
+        "dense": {
+          "hit_at_1": false,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p35:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 35,
+              "score": 0.614929735660553,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "score": 0.5910307765007019,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p35:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 35,
+              "score": 0.5370261073112488,
+              "hit": false
+            }
+          ]
+        },
+        "tfidf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "score": 0.4628288214255654,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p35:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 35,
+              "score": 0.416053236057288,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p36:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 36,
+              "score": 0.2615967826349119,
+              "hit": false
+            }
+          ]
+        },
+        "hybrid_rrf": {
+          "hit_at_1": true,
+          "evidence_hit_at_3": true,
+          "results": [
+            {
+              "id": "6f27529d88ed:p34:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 34,
+              "score": 0.03252247488101534,
+              "hit": true
+            },
+            {
+              "id": "6f27529d88ed:p35:c2",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 35,
+              "score": 0.03252247488101534,
+              "hit": false
+            },
+            {
+              "id": "6f27529d88ed:p36:c1",
+              "source": "K47_Nguyen_Viet_Cuong_Thesis.pdf",
+              "page": 36,
+              "score": 0.03149801587301587,
+              "hit": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

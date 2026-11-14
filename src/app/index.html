@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Trợ lý luận văn | Day 7 RAG</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">R</div>
+      <div class="brand-copy">
+        <h1>Trợ lý luận văn</h1>
+        <p>Agentic RAG · K47 Nguyễn Việt Cường</p>
+      </div>
+      <div class="connection"><span class="status-dot"></span>Local</div>
+    </header>
+
+    <section class="chat-panel" aria-label="Khung trò chuyện">
+      <div class="chat-heading">
+        <div>
+          <h2>Hỏi về tài liệu</h2>
+          <p>Agent tìm bằng chứng trong PDF và dẫn nguồn theo trang.</p>
+        </div>
+        <button id="clear-chat" class="clear-button" type="button" title="Xóa nội dung hội thoại">Làm mới</button>
+      </div>
+
+      <div id="messages" class="messages" aria-live="polite" aria-relevant="additions">
+        <article class="message assistant-message welcome-message">
+          <div class="avatar" aria-hidden="true">AI</div>
+          <div class="message-body">
+            <div class="message-label">Trợ lý</div>
+            <div class="bubble">Xin chào! Bạn có thể hỏi về nội dung luận văn. Mình sẽ tìm đoạn liên quan và hiển thị trang nguồn để bạn kiểm tra.</div>
+            <div class="suggestions" aria-label="Câu hỏi gợi ý">
+              <button type="button" class="suggestion">Luận văn đề xuất phương pháp biểu diễn văn bản nào?</button>
+              <button type="button" class="suggestion">Kết quả với bộ 50 văn bản là bao nhiêu?</button>
+              <button type="button" class="suggestion">Tài liệu có đề cập đến BERT không?</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <form id="chat-form" class="composer">
+        <label class="sr-only" for="question">Câu hỏi</label>
+        <textarea id="question" name="question" rows="1" maxlength="4000"
+          placeholder="Nhập câu hỏi về luận văn..." required></textarea>
+        <button id="send-button" class="send-button" type="submit" aria-label="Gửi câu hỏi">
+          <span>Gửi</span><span aria-hidden="true">↗</span>
+        </button>
+      </form>
+      <div class="composer-note">Enter để gửi · Shift+Enter để xuống dòng</div>
+    </section>
+
+    <footer class="footer-note">Câu trả lời có thể chưa đầy đủ. Mở nguồn trích dẫn để đối chiếu nội dung gốc.</footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
